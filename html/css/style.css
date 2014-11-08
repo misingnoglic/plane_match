@@ -536,6 +536,12 @@
 			color: white !important;
 		}
 
+		.button.special2 {
+			background: #336699;
+			border-color: #336699;
+			color: white !important;
+		}
+
 			input[type="button"].special:hover,
 			input[type="submit"].special:hover,
 			input[type="reset"].special:hover,
@@ -543,7 +549,13 @@
 				background: #96dad1 !important;
 				border-color: #96dad1 !important;
 			}
-
+			input[type="button"].special2:hover,
+			input[type="submit"].special2:hover,
+			input[type="reset"].special2:hover,
+			.button.special2:hover {
+				background: #336699 !important;
+				border-color: #336699 !important;
+			}
 		input[type="button"].fit,
 		input[type="submit"].fit,
 		input[type="reset"].fit,
