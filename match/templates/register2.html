@@ -42,12 +42,19 @@
 				<!-- One -->				<!-- Three -->
 					<section class="wrapper styleME container">
 							<center>
-							<form action="/register" method="post"><input type='hidden' name='csrfmiddlewaretoken' value={% csrf_token %} />
-							<p><label for="id_username">Username:</label> <input id="id_username" maxlength="30" name="username" type="text" /></p>
-							<p><label for="id_email">Email:</label> <input id="id_email" name="email" type="email" /></p>
-							<p><label for="id_password1">Password:</label> <input id="id_password1" name="password1" type="password" /></p>
-							<p><label for="id_password2">Password confirmation:</label> <input id="id_password2" name="password2" type="password" /></p>
-							<input type="submit" value="Submit" />
+							<form action="/register" method="POST">
+                            {% csrf_token %}
+                                {% if form.non_field_errors %}
+                                    <ul>
+                                      {% for error in form.non_field_errors %}
+                                        <li>{{ error }}</li>
+                                      {% endfor %}
+                                    </ul>
+                                {% endif %}
+                            {% for field in form %}
+							    <p>{{ field.label_tag }} {{ field }}</p>
+							{% endfor %}
+                            <input type="submit" value="Submit" />
 							</form>
 							</center>              
 			  </section>				

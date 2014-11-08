@@ -6,9 +6,26 @@
 </head>
 <body>
 
-<form action="/register" method="post">{% csrf_token %}
-{{ form.as_p }}
-<input type="submit" value="Submit" />
+<form action="/register" method="post">
+    {% if form.non_field_errors %}
+    <ul>
+      {% for error in form.non_field_errors %}
+        <li>{{ error }}</li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+
+  {% for field in form %}
+    <div>
+      {{ field.label_tag }} {{ field }}
+    </div>
+    <div id="{{ field.auto_id }}_errors">
+      {{ field.errors }}
+    </div>
+  </div>
+  {% endfor %}
+
+  <input id="save_contact" type="submit" value="Save" />
 </form>
 
 
