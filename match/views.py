@@ -17,7 +17,7 @@ def register(request):
         context = {"form":form}
         context = {}
         context['form'] = form
-        return render(request, 'register2.html',context)
+        return render(request, 'register.html',context)
 
 def create_new(request):
     return render(request,'createnew.html')
