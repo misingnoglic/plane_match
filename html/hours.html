@@ -1,0 +1,159 @@
+<!DOCTYPE HTML>
+<!--
+	Twenty by HTML5 UP
+	html5up.net | @n33co
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	
+<!-- Mirrored from 54.172.30.5/hours.html by HTTrack Website Copier/3.x [XR&CO'2013], Sat, 08 Nov 2014 17:23:21 GMT -->
+<head>
+		<title>Hours | Getz Media Lab</title>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<!--[if lte IE 8]><script src="css/ie/html5shiv.js"></script><![endif]-->
+		<script src="js/jquery.min.js"></script>
+		<script src="js/jquery.dropotron.min.js"></script>
+		<script src="js/jquery.scrolly.min.js"></script>
+		<script src="js/jquery.scrollgress.min.js"></script>
+		<script src="js/skel.min.js"></script>
+		<script src="js/skel-layers.min.js"></script>
+		<script src="js/init.js"></script>
+		<noscript>
+			<link rel="stylesheet" href="css/skel.css" />
+			<link rel="stylesheet" href="css/style.css" />
+			<link rel="stylesheet" href="css/style-wide.css" />
+			<link rel="stylesheet" href="css/style-noscript.css" />
+		</noscript>
+		<!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
+		<!--[if lte IE 9]><link rel="stylesheet" href="css/ie/v9.css" /><![endif]-->
+	</head>
+	<body onload="getHours()" class="no-sidebar">
+	
+		<!-- Header -->
+			<header id="header">
+		  <h1 id="logo"><a href="index-2.html">3RD FLOOR <span>FARBER LIBRARY</span></a></h1>
+			  <nav id="nav">
+					<ul>
+						<li class="current"><a href="index-2.html">Home</a></li>
+					  <li class="current"><a href="hours.html">Hours</a></li>
+					<li class="submenu">
+							<a href="#">Services</a>
+							<ul>
+								<li><a href="equipment_catalogue.html">Equipment Rentals</a></li>
+								<li><a href="software_catalogue.html">Software Catalogue</a></li>
+								<li><a href="training.html">Training</a></li>
+                          </ul>
+						</li>
+                        
+						<li><a href="../external.html?link=https://help.brandeis.edu/" class="button special">Request Help</a></li>
+					</ul>
+				</nav>
+			</header>
+		
+		<!-- Main -->
+			<article id="main">
+
+				<header class="special container"><span class="icon fa-clock-o"></span>
+				  <h2><strong>OPERATING HOURS</strong></h2>
+                  <p>
+				  <h1><strong>Today: <span id="hours"></span></strong></h1>
+				  </p>
+                </header>
+					
+				<!-- One -->
+					<section class="wrapper style4 container">
+					
+						<!-- Content -->
+							<div class="content">
+								<section>
+								  <p>
+                                  	<table >
+                                    	<tr>
+                                        	<td><strong>DAY</strong></td>
+                                        	<td><strong>OPEN</strong></td>
+                                        	<td><strong>CLOSE</strong></td>
+                                       </tr>
+										<tr height="15px"></tr>
+                                    	<tr>
+                                        	<td>SUNDAY: </td>
+                                        	<td>12:00 PM</td>
+                                        	<td>12:00 AM</td>
+                                       </tr>
+                                    	<tr>
+                                        	<td>MONDAY: </td>
+                                        	<td>10:00 AM</td>
+                                        	<td>12:00 AM</td>
+                                       </tr>
+                                    	<tr>
+                                        	<td>TUESDAY: </td>
+                                        	<td>10:00 AM</td>
+                                        	<td>12:00 AM</td>
+                                       </tr>
+                                    	<tr>
+                                        	<td>WEDNESDAY: </td>
+                                        	<td>10:00 AM</td>
+                                        	<td>12:00 AM</td>
+                                       </tr>
+                                    	<tr>
+                                        	<td>THURSDAY: </td>
+                                        	<td>10:00 AM</td>
+                                        	<td>12:00 AM</td>
+                                       </tr>
+                                    	<tr>
+                                        	<td>FRIDAY: </td>
+                                        	<td>10:00 AM</td>
+                                        	<td>6:00 PM</td>
+                                       </tr>
+                                    	<tr>
+                                        	<td>SATURDAY: </td>
+                                        	<td>12:00 PM</td>
+                                        	<td>6:00 PM</td>
+                                       </tr>
+                                    </table>
+                                  </p>
+<script>
+function getHours() {
+	var d = new Date();
+    if(d.getDay() >= 1 && d.getDay() <= 4){
+    	document.getElementById("hours").innerHTML = "10:00 AM - 12:00 AM";
+    }
+    else if(d.getDay = 5){
+    	document.getElementById("hours").innerHTML = "10:00 AM - 6:00 PM";
+    }
+	else if(d.getDay = 6){
+    	document.getElementById("hours").innerHTML = "12:00 PM - 6:00 PM";
+    }
+	else{
+    	document.getElementById("hours").innerHTML = "12:00 PM - 12:00 AM,";
+    }
+}
+
+
+</script>
+								</section>
+							</div>
+
+
+			</article>
+	  <section style="height:200px"></section>
+		<!-- Footer -->
+			<footer id="footer">
+			
+				<ul class="icons">
+					<li><a href="#" class="icon circle fa-twitter"><span class="label">Twitter</span></a></li>
+					<li><a href="../external.html?link=https://www.facebook.com/getzlab" class="icon circle fa-facebook"><span class="label">Facebook</span></a></li>
+					<li><a href="#" class="icon circle fa-google-plus"><span class="label">Google+</span></a></li>
+			</ul>
+				
+				<ul class="copyright">
+					<li>&copy; Getz Media Lab, 2014</li><li>Design: <a href="../external.html?link=http://html5up.net/">Ari Ben-Elazar</a></li>
+				</ul>
+			
+			</footer>
+
+	</body>
+
+<!-- Mirrored from 54.172.30.5/hours.html by HTTrack Website Copier/3.x [XR&CO'2013], Sat, 08 Nov 2014 17:23:21 GMT -->
+</html>
