@@ -1137,8 +1137,8 @@
     color: white;
 }
 .square-content img {
-	width:inherit;
-	height:inherit;
+	width:100%;
+	height:100%;
 }
 
 #user_profile{
