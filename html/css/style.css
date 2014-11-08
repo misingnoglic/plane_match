@@ -628,6 +628,13 @@
 			padding: 4em;
 		}
 
+		.wrapper.styleME{
+			background: white;
+			color: inherit;
+			width: 30em;
+			padding:40px;
+		}
+
 /* Header */
 	@-moz-keyframes reveal-header { 0% { top: -5em; } 100% { top: 0; } }
 	@-webkit-keyframes reveal-header { 0% { top: -5em; } 100% { top: 0; } }
@@ -647,6 +654,10 @@
 		top: 0;
 		width: 100%;
 		z-index: 10000;
+	}
+
+	#header loginHeader{
+		padding:0;
 	}
 
 		#header h1 {
