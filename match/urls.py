@@ -5,5 +5,7 @@ from match import views
 
 urlpatterns = patterns('',
     url(r'register', views.register, name='register'),
-    url(r'createnew', views.create_new, name='create_new')
+    url(r'createnew', views.create_new, name='create_new'),
+    url(r'index', views.index, name='index'),
+    url(r'^$', views.index, name='index')
 )

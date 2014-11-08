@@ -1,3 +1,4 @@
+
 <!DOCTYPE HTML>
 <html>
 
@@ -27,11 +28,15 @@
 
 			<header id="header">
 			  <h1 id="logo"><a href="index">PLANE<span>MATCH</span></a></h1>
-			</header>
+			{% block extra %}{% endblock %}
+            </header>
+
 
 
 			<div id="content">{% block content %} {% endblock %}
 			</div>
+
+            {% block footer %}{% endblock %}
 
 	</body>
 </html>
