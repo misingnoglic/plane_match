@@ -34,15 +34,20 @@
 		<!-- Main -->
 			<article id="main">
 
-				<header class="container" padding:"0px"></span>
-				  <h2><center>Profile</center></h2><p>
+				<header class=" ontainer" padding:"0px"></span>
+				  <h2><center>Login</center></h2><p><hr>
 				</header>
 					
 						
 				<!-- One -->				<!-- Three -->
 					<section class="wrapper styleME container">
-
-           
+							<center>
+							<form action="/register" method="post"><input type='hidden' name='csrfmiddlewaretoken' value='fAirHLch2de0W4LzhhoH2GO7aUq96Jmu' />
+							<p><label for="id_username">Username:</label> <input id="id_username" maxlength="30" name="username" type="text" /></p>
+							<p><label for="id_password1">Password:</label> <input id="id_password1" name="password1" type="password" /></p>
+							<input type="submit" value="Submit" />
+							</form>
+							</center>              
 			  </section>				
 	</body>
 
