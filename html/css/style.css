@@ -535,11 +535,6 @@
 			border-color: #83d3c9;
 			color: white !important;
 		}
-		.button.special2 {
-			background: #336699;
-			border-color: #336699;
-			color: white !important;
-		}
 
 			input[type="button"].special:hover,
 			input[type="submit"].special:hover,
@@ -547,13 +542,6 @@
 			.button.special:hover {
 				background: #96dad1 !important;
 				border-color: #96dad1 !important;
-			}
-			input[type="button"].special2:hover,
-			input[type="submit"].special2:hover,
-			input[type="reset"].special2:hover,
-			.button.special2:hover {
-				background: #336699 !important;
-				border-color: #336699 !important;
 			}
 
 		input[type="button"].fit,
@@ -606,16 +594,6 @@
 					border-color: inherit !important;
 					color: white !important;
 				}
-			.wrapper.style2 .button.special2 {
-				background: white;
-				border-color: white;
-				color: #336699 !important;
-			}
-
-				.wrapper.style2 .button.special2:hover {
-					border-color: inherit !important;
-					color: white !important;
-				}
 
 		.wrapper.style3 {
 			background: white;
@@ -654,10 +632,6 @@
 		top: 0;
 		width: 100%;
 		z-index: 10000;
-	}
-
-	#header loginHeader{
-		padding:0;
 	}
 
 		#header h1 {
@@ -885,6 +859,9 @@
 					text-decoration: none;
 				}
 
+			#banner .inner footer {
+				margin: 2em 0 0 0;
+			}
 
 /* Main */
 
@@ -939,7 +916,7 @@
 	#footer {
 		background: #e8eef4;
 		color: #7c8081;
-		padding: 5em 5em 3em 5em;
+		padding: 5em 5em 10em 5em;
 		text-align: center;
 	}
 
