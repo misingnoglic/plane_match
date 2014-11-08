@@ -530,12 +530,11 @@
 		input[type="button"].special,
 		input[type="submit"].special,
 		input[type="reset"].special,
-		.button.special {
+.button.special {
 			background: #83d3c9;
 			border-color: #83d3c9;
 			color: white !important;
 		}
-
 		.button.special2 {
 			background: #336699;
 			border-color: #336699;
@@ -1109,7 +1108,15 @@
 			width: 5em;
 		}
 
-
+#current_flights{
+	margin-left: auto;
+	margin-right: auto;
+	border-style: solid;
+    border-width: 5px;	
+	/* width: (containers) */
+	width: 300px;
+	height:300px
+}
 
 .box{
     position: relative;
