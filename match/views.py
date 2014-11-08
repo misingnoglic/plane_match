@@ -21,3 +21,9 @@ def register(request):
 
 def create_new(request):
     return render(request,'createnew.html')
+
+def index(request):
+    return render(request, 'index.html')
+
+def success(request):
+    return render(request, 'success.html')

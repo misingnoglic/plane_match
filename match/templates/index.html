@@ -1,0 +1,44 @@
+{% extends "base2.html" %}
+
+			{% block extra %}
+			  <nav id="nav">
+			  		<ul>
+						<li><a href="login" class="button special">Log in</a></li>
+						<li><a href="register" class="button special2">Register</a></li>
+					</ul>
+				</nav>
+            {% endblock %}
+
+		{% block content %}
+            <section id="banner">
+					<div class="inner">
+
+					<header>
+					  <h2>WELCOME TO PLANEMATCH</h2>
+					</header>
+					<p><strong>THE SOCIAL FLIGHT SEAT MAPPER</strong><br>
+					</br>
+
+						<ul class="buttons vertical">
+							<li><a href="#main" class="button  ">Check Us Out</a></li>
+						</ul>
+
+				</div>
+        {% endblock %}
+
+
+        {% block footer %}
+			<footer id="footer">
+
+				<ul class="icons">
+					<li><a href="#" class="icon circle fa-twitter"><span class="label">Twitter</span></a></li>
+					<li><a href="#" class="icon circle fa-facebook"><span class="label">Facebook</span></a></li>
+					<li><a href="#" class="icon circle fa-google-plus"><span class="label">Google+</span></a></li>
+			</ul>
+
+				<ul class="copyright">
+					<li>&copy; Team Ultron 2014</li>
+				</ul>
+
+			</footer>
+        {% endblock %}
