@@ -49,3 +49,6 @@ class FlightNumberForm(forms.Form):
 class NewFlight(forms.Form):
     class Meta:
         fields = ("from", "to", "date")
+
+class SeatNumberForm(forms.Form):
+    number = forms.CharField(max_length=3)

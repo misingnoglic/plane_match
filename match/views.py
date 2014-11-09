@@ -169,5 +169,7 @@ def flight_profiles(request,flight_number):
 def choose_seat(request,flight_number):
     current_user = request.user
     user = AirlineUser.objects.get(user__pk__exact=current_user.pk)
-
+    flight = Flight.objects.get(pk=flight_number)
+    person = PersonOnFlight.objects.get(person = user, flight__pk=flight_number)
+    person.seat_number=None
 
