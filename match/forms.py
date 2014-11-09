@@ -3,7 +3,7 @@ from django import forms
 from django.contrib.auth.models import User
 from match.models import Interest
 from django.contrib.auth.forms import UserCreationForm
-from constants import airport_map
+from constants import airline_map
 
 class UserCreateForm(UserCreationForm):
     email = forms.EmailField(required=True)
@@ -33,11 +33,27 @@ class DescriptionForm(forms.Form):
     description = forms.CharField(widget = forms.Textarea)
 
 class FindFlightForm(forms.Form):
-    airports = airport_map.keys()
+    airlines = airline_map.keys()
+    CATEGORY_CHOICES = [    # Note square brackets.
+    (1, u'Appetizer'),
+    (2, u'Bread'),
+    (3, u'Dessert'),
+    (4, u'Drinks'),
+    (5, u'Main Course'),
+    (6, u'Salad'),
+    (7, u'Side Dish'),
+    (8, u'Soup'),
+    (9, u'Sauce/Marinade'),
+    (10, u'Other'),
+]
     depart_date = forms.DateField
-    flight_number = forms.CharField(max_length=5)
-    airport = forms.ChoiceField(choices=airports)
+    airline = forms.ChoiceField(choices=CATEGORY_CHOICES)
+    origin = forms.CharField(max_length=3)
+    destination = forms.CharField(max_length=3)
 
+
+class FlightNumberForm(forms.Form):
+    flight_number = forms.CharField(max_length=5)
 
 class NewFlight(forms.Form):
     class Meta:

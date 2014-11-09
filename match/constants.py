@@ -1,5 +1,5 @@
 __author__ = 'arya'
-airport_map = {
+airline_map = {
 	"AirTran Airways": "FL",
 	"Alaska AirLines": "AS",
 	"American Airlines": "AA",

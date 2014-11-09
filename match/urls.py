@@ -13,4 +13,5 @@ urlpatterns = patterns('',
     url(r'logout', views.logout_view, name='logout'),
     url(r'profile', views.profile, name='profile'),
     url(r'interests', views.add_interests, name='interests'),
+    url(r'find', views.find_flight, name='find_flight'),
 )

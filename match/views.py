@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, HttpResponse
 #from django.contrib.auth.forms import UserCreateForm
-from forms import UserCreateForm, InterestForm, DescriptionForm
+from forms import UserCreateForm, InterestForm, DescriptionForm, FindFlightForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 from models import AirlineUser, Interest
@@ -90,6 +90,12 @@ def profile(request):
                'interests':list_of_interests}
 
     return render(request, 'profile.html', context)
+
+def find_flight(request):
+    form = FindFlightForm()
+    context = {}
+    context['form']=form
+    return render(request, 'find_flight.html',context)
 
 '''def createnew(request):
     if request.method == 'POST':
