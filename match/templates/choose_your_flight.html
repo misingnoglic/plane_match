@@ -5,14 +5,15 @@
     <title></title>
 </head>
 <body>
-<form action="/find" method="post">
+<form action="/addflight" method="post">
     {% csrf_token %}
 
-<p><label for="id_airline">Airline:</label> <select id="id_airline" name="airline">
+<p><label for="id_flight">Airline:</label> <select id="id_flight" name="flight">
     {% for i,j in flights %}
 <option value={{ i }}>{{ j }}</option>
     {% endfor %}
 </select></p>
-
+<input type="submit" value="Submit" />
+</form>
 </body>
 </html>

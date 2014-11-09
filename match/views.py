@@ -3,7 +3,7 @@ from django.shortcuts import render, redirect, HttpResponse
 from forms import UserCreateForm, InterestForm, DescriptionForm, FindFlightForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
-from models import AirlineUser, Interest
+from models import AirlineUser, Interest, Flight, PersonOnFlight
 from GetFlightInfo import *
 
 def register(request):
@@ -32,22 +32,16 @@ def add_interests(request):
     print(current_user.username)
     user = AirlineUser.objects.get(user__pk__exact=current_user.pk)
     if request.method=="POST":
-        print 1
         interest_form = InterestForm(request.POST)
         if interest_form.is_valid():
-            print 2
             text = request.POST['interest']
             L = Interest.objects.filter(name__iexact=text)
             if len(L)<1:
-                print 3
                 interest_object = Interest(name=text)
                 interest_object.save()
             else:
-                print 4
                 interest_object = L[0]
             user.interests.add(interest_object)
-            print 5
-        print 6
         return redirect('match.views.profile')
 
     else:
@@ -117,6 +111,13 @@ def find_flight(request):
 
 def addFlight(request):
     if request.method == "POST":
+        current_user = request.user
+        user = AirlineUser.objects.get(user__pk__exact=current_user.pk)
         list_of_flights= request.list_of_flights
         index = request.airline
         flight = list_of_flights[index]
+        flight_model = Flight(number = flight.number, destination=flight.destination,origin=flight.origin)
+        flight_model.save()
+        passenger = PersonOnFlight(person = user, flight=flight_model)
+        passenger.save()
+        return HttpResponse("Yay")

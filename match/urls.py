@@ -14,4 +14,5 @@ urlpatterns = patterns('',
     url(r'profile', views.profile, name='profile'),
     url(r'interests', views.add_interests, name='interests'),
     url(r'find', views.find_flight, name='find_flight'),
+    url(r'addflight',views.addFlight, name='add_flight'),
 )
