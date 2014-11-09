@@ -34,7 +34,7 @@
                                 No seat? We gotcha.
                                 <div style="background-color:white;">
                                 {% csrf_token %}
-                                {{ form.as_p }}
+                                <p><input id="id_number" maxlength="3" name="number" type="text" /></p>
                                 </div>
                                 <input type="submit" value="Submit"/>
                         </form>
