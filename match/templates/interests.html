@@ -6,6 +6,13 @@
 <br>
     <br>
     <br>
+    <table>
+    <tr>
+        {% for interest in interests %}
+        <td>{{ interest.name }}</td>
+        {% endfor %}
+    </tr>
+    </table>
                 <form action="/interests" method="POST">
                 {% csrf_token %}
                     {% if form.non_field_errors %}

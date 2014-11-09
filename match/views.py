@@ -3,16 +3,17 @@ from django.shortcuts import render, redirect, HttpResponse
 from forms import UserCreateForm, InterestForm, DescriptionForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
+from models import AirlineUser, Interest
 
 def register(request):
     if request.method == 'POST':
         form = UserCreateForm(request.POST)
-
-
         if form.is_valid():
             username = form.clean_username()
             password = form.clean_password2()
-            form.save()
+            u = form.save()
+            p = AirlineUser(user=u)
+            p.save()
             user = authenticate(username=username, password=password)
             login(request,user)
             #return render(request,'created_file.html')
@@ -25,8 +26,30 @@ def register(request):
         return render(request, 'register.html',context)
 
 def add_interests(request):
+    #user = .AirlineUser
+    current_user = request.user
+    print(current_user.username)
+    user = AirlineUser.objects.get(user__pk__exact=current_user.pk)
+    print user
+    if request.method=="POST":
+        interest_form = InterestForm(request.POST)
+        if interest_form.is_valid():
+            text = request.POST['interest']
+            L = Interest.objects.filter(name__iexact=text)
+            if len(L)<1:
+                interest_object = Interest(name=text)
+                interest_object.save()
+            else:
+                interest_object = L[0]
+            user.interests.add(interest_object)
+
+    else:
+        pass
+    list_of_interests = user.interests.all()
+    print(list_of_interests)
+
     form = InterestForm()
-    context = {"form":form}
+    context = {"form":form, "interests":list_of_interests}
     return render(request, 'interests.html',context)
 
 def create_new(request):
