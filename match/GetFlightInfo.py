@@ -10,17 +10,19 @@ class FlightObject():
 		self.aircraft = aircraft
 	def __str__(self):
 		return str(self.departureTime)+" "+str(self.arrivalTime)+" "+str(self.flightNumber)+" "+str(self.aircraft)
+'''
 testDate = "2014-12-15"
 testOrigin = "BOS"
 testDestination = "SFO"
 testAirline = "AA"
+'''
 #date should be formatted yyyy-MM-dd,
 #origin and destination should be 3 digit airport codes 
 #the airline should be a 2 digit IATA code
 def getUrl(date, origin, destination, airline):
 	return "http://api.sandbox.amadeus.com/v1.2/flights/low-fare-search?origin=" + origin + "&destination=" + destination + "&departure_date=" + date + "&include_airlines=" + airline + "&direct=true&apikey="+amadeus_key
 
-print getUrl(testDate, testOrigin, testDestination, testAirline)
+#print getUrl(testDate, testOrigin, testDestination, testAirline)
 def getFlights(date,origin,destination,airline):
 	planelist = requests.request('GET', getUrl(date,origin,destination,airline))
 	planelist = planelist.json()
@@ -43,5 +45,5 @@ def getFlights(date,origin,destination,airline):
 	return list_of_departures
 
 
-for flight in getFlights(testDate,testOrigin,testDestination,testAirline):
-	print flight
+#for flight in getFlights(testDate,testOrigin,testDestination,testAirline):
+#	print flight
