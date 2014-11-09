@@ -13,11 +13,11 @@ class Flight(models.Model):
     def __str__(self):
         return str(self.number+" from "+self.origin+" to "+self.destination)
 
-class Seat(models.Model):
+'''class Seat(models.Model):
     number = models.CharField(max_length=4)
     flight = models.ForeignKey(Flight)
     def __str__(self):
-        return str(self.number)
+        return str(self.number)'''
 
 class Interest(models.Model):
     name = models.CharField(max_length=10)
@@ -45,7 +45,8 @@ class AirlineUser(models.Model):
 
 class PersonOnFlight(models.Model):
     person = models.ForeignKey(AirlineUser)
-    hotel = models.ForeignKey(Hotel, blank=True)
-    flight = models.ForeignKey(Flight, blank=True)
+    hotel = models.ForeignKey(Hotel, null=True)
+    flight = models.ForeignKey(Flight)
+    seat_number = models.CharField(max_length=4)
     def __str__(self):
         return str(self.person.user.username)

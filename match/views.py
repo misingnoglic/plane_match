@@ -5,6 +5,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 from models import AirlineUser, Interest, Flight, PersonOnFlight
 from GetFlightInfo import *
+import json
 
 def register(request):
     if request.method == 'POST':
@@ -99,7 +100,17 @@ def find_flight(request):
             date = form.cleaned_data['depart_date']
             date = date.strftime("%Y-%m-%d")
             list_of_flights = getFlights(date,origin,destination,airline)
-            request.session[0]= list_of_flights
+            flight_json = []
+            for flight in list_of_flights:
+                d = {}
+                d['number'] = flight.flightNumber
+                d['origin'] = origin
+                d['destination'] = destination
+                d['departure'] = date
+                flight_json.append(d)
+            request.session["flight"]= json.dumps(flight_json)
+            request.session[1] = "foo"
+            print request.session['flight']
             context = {}
             context['flights'] = list(enumerate(list_of_flights))
             return render(request,'choose_your_flight.html',context)
@@ -113,11 +124,12 @@ def addFlight(request):
     if request.method == "POST":
         current_user = request.user
         user = AirlineUser.objects.get(user__pk__exact=current_user.pk)
-        list_of_flights= request.session['0']
-        print list_of_flights
-        index = int(request.airline)
-        flight = list_of_flights[index]
-        flight_model = Flight(number = flight.number, destination=flight.destination,origin=flight.origin)
+        flight_json= json.loads(request.session['flight'])
+        print request.session['1']
+        print flight_json
+        index = int(request.POST['flight'])
+        flight = flight_json[index]
+        flight_model = Flight(number = flight['number'], destination=flight['destination'],origin = flight['origin'])
         flight_model.save()
         passenger = PersonOnFlight(person = user, flight=flight_model)
         passenger.save()
