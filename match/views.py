@@ -30,7 +30,6 @@ def add_interests(request):
     current_user = request.user
     print(current_user.username)
     user = AirlineUser.objects.get(user__pk__exact=current_user.pk)
-    print user
     if request.method=="POST":
         interest_form = InterestForm(request.POST)
         if interest_form.is_valid():
@@ -46,7 +45,7 @@ def add_interests(request):
     else:
         pass
     list_of_interests = user.interests.all()
-    print(list_of_interests)
+    #print(list_of_interests)
 
     form = InterestForm()
     context = {"form":form, "interests":list_of_interests}
@@ -82,7 +81,12 @@ def success(request):
         return HttpResponse("idk")
 
 def profile(request):
-    context = {'interest_form':InterestForm(), 'description_form':DescriptionForm()}
+    current_user = request.user
+    print(current_user.username)
+    user = AirlineUser.objects.get(user__pk__exact=current_user.pk)
+    list_of_interests = user.interests.all()
+    context = {'interest_form':InterestForm(), 'description_form':DescriptionForm(),
+               'interests':list_of_interests}
 
     return render(request, 'profile.html', context)
 
