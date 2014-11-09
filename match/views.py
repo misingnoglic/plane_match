@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect, HttpResponse
 #from django.contrib.auth.forms import UserCreateForm
 from forms import UserCreateForm
 from django.contrib.auth import authenticate, login
@@ -8,10 +8,16 @@ from django.contrib.auth.models import User
 def register(request):
     if request.method == 'POST':
         form = UserCreateForm(request.POST)
+
+
         if form.is_valid():
-            user = form.save()
+            username = form.clean_username()
+            password = form.clean_password2()
+            form.save()
+            user = authenticate(username=username, password=password)
             login(request,user)
-            return render(request,'created_file.html')
+            #return render(request,'created_file.html')
+            return redirect('match.views.success')
     else:
         form = UserCreateForm()
         context = {"form":form}
@@ -26,4 +32,7 @@ def index(request):
     return render(request, 'index.html')
 
 def success(request):
-    return render(request, 'success.html')
+    if request.user.is_authenticated():
+        return render(request, 'success.html')
+    else:
+        return HttpResponse("idk")
