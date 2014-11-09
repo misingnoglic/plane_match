@@ -40,6 +40,10 @@ def success(request):
     else:
         return HttpResponse("idk")
 
+def logout(request):
+    return render(request, 'logout.html')
+
+'''
 def createnew(request):
     if request.method == 'POST':
         form = UserCreateForm(request.POST)
@@ -57,4 +61,4 @@ def createnew(request):
         context = {"form":form}
         context = {}
         context['form'] = form
-        return render(request, 'register.html',context)
+        return render(request, 'register.html',context)'''

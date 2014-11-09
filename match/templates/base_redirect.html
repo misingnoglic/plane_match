@@ -7,7 +7,10 @@
 
 		<title>Log in</title>
         {% block head %} {% endblock %}
-        <meta http-equiv="refresh" content="3;profile.html" /> <!-- Refresh page -->
+        <meta http-equiv="refresh" content="3;
+        {% block redirectURL %}
+        {% endblock %}
+        " /> <!-- Refresh page -->
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 		<meta name="description" content="" />
 		<meta name="keywords" content="" />
