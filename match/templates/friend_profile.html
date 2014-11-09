@@ -1,12 +1,11 @@
 {% extends "base.html" %}
 
-{% block title %}{{ friend }}'s Profile{% endblock %}
 {% block title2 %}{{ friend }}'s Profile{% endblock %}
 {% block content %}
 				<section class="wrapper style3 container" padding="0px">
 					<div class="row">
 						<div class="6u" padding="""0px">
-							Profile:
+                          <header id="profiletop"><h1>{{ friend }}'s <span>profile</span></h1>
 							<div class='square-box'>
 						    	<div class='square-content' id="user_profile"><div>
 						    		<img src="http://placekitten.com/g/225/225">
@@ -14,7 +13,7 @@
 							</div>
 						</div>
 						<div class="6u">
-							<strong>INTERESTS</strong>:
+                <header id="profiletop"><h1>{{ friend }}'s <span>interests</span></h1>
 							<div class="interests">
 						     {% for interest in interests %} {{ interest }}, {% endfor %}
                             <br><br><br><br><br><br>
