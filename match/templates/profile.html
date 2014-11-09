@@ -1,8 +1,81 @@
-{% extends "base2.html" %}
-
+{% extends "base.html" %}
 {% block title %}Your Profile{% endblock %}
+{% block title2 %}Your Profile{% endblock %}
 
 {% block content %}
-    <p>
-    yay you have a profile! way to go you lil trooper ^_^</p>
+
+        <div class="row">
+            <div class="4u -2u" >
+                <header id="profiletop"><h1>your<span>interests</span></h1>
+                <div class="rectangle-box">
+                <div class='square-box'>
+                    <div class='square-content' id="user_profile"><div>
+                        <img src="http://placekitten.com/g/300/300">
+                        <span></span></div></div>
+                    {{ for field in interest_form }}
+                </div>
+                    </div>
+            </div>
+            <div class="4u">
+                <header id="profiletop"><h1>current<span>flights</span></h1>
+                <div class='rectangle-box'>
+
+                    <div class='rectangle-content' id="current_flights">
+                     <table class="alt-table">
+                            <tr>
+                                <td>Hamlet</td>
+                                <td>Tragedy</td>
+                                <td>1604</td>
+                                <td>1604</td>
+                            </tr>
+                            <tr>
+                                <td>Hamlet</td>
+                                <td>Tragedy</td>
+                                <td>1604</td>
+                                <td>1604</td>
+                            </tr>
+                            <tr>
+                                <td>Hamlet</td>
+                                <td>Tragedy</td>
+                                <td>1604</td>
+                                <td>1604</td>
+                            </tr>
+                            <tr>
+                                <td>Hamlet</td>
+                                <td>Tragedy</td>
+                                <td>1604</td>
+                                <td>1604</td>
+                            </tr>
+                            <tr>
+                                <td>Hamlet</td>
+                                <td>Tragedy</td>
+                                <td>1604</td>
+                                <td>1604</td>
+                            </tr>
+                            <tr>
+                                <td>Hamlet</td>
+                                <td>Tragedy</td>
+                                <td>1604</td>
+                                <td>1604</td>
+                            </tr>
+                            <tr>
+                                <td>Hamlet</td>
+                                <td>Tragedy</td>
+                                <td>1604</td>
+                                <td>1604</td>
+                            </tr>
+                            <tr>
+                                <td>Hamlet</td>
+                                <td>Tragedy</td>
+                                <td>1604</td>
+                                <td>1604</td>
+                           </tr>
+                    </table>
+                    <a href="new_flight.html"><button class="add-btn">+</button></a>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 {% endblock %}
