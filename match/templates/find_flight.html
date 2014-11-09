@@ -1,14 +1,20 @@
-<!DOCTYPE html>
-<html>
-<head lang="en">
-    <meta charset="UTF-8">
-    <title>Find your flight!!</title>
-</head>
-<body>
+{% extends "base.html" %}
+
+{% block title %}Find Flight{% endblock %}
+{% block title2 %}Find Flight{% endblock %}
+{% block content %}
+<div align="center" width="">
+<div class="rectangle-box" style="width:30% !important;">
+
 <form action="/find" method="post">
+
     {% csrf_token %}
-    {{ form.as_p }}
+
+    {% for field in form %}
+        <p>{{ field.label_tag }} {{ field }}</p>
+    {% endfor %}
     <input type="submit" value="Submit" />
 </form>
-</body>
-</html>
+</div>
+</div>
+{% endblock %}
