@@ -155,7 +155,7 @@ def addFlight(request):
                 passenger = PersonOnFlight(person = user, flight=flight_model)
                 passenger.save()
 
-        return redirect('match.views.flight_page',flight_number=flight_model.pk)
+        return redirect('match.views.profile')
         #return HttpResponse("Yay")
 
 
@@ -167,5 +167,7 @@ def flight_profiles(request,flight_number):
     return render(request,'flight_profiles.html',context)
 
 def choose_seat(request,flight_number):
-    pass
+    current_user = request.user
+    user = AirlineUser.objects.get(user__pk__exact=current_user.pk)
+
 
