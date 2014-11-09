@@ -193,7 +193,9 @@ def choose_seat(request,flight_number):
     if request.method =="POST":
         seat = SeatNumberForm(request.POST)
         if seat.is_valid():
-            person.seat_number=None
+            person.seat_number=seat.cleaned_data['seat_number']
+            person.save()
+    return redirect('match.views.profile')
 
 def hotel(request,flight_number):
     current_user = request.user
@@ -250,3 +252,4 @@ def select_hotel(request,flight_number):
 def send(request, friend_id):
     friend = PersonOnFlight.objects.get(pk=friend_id)
     email = friend.person.user.email
+
