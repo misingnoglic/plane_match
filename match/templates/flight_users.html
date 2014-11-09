@@ -10,11 +10,11 @@
 					<div class="1u column">
 						&nbsp;
 					</div>
-                    {% for passenger in passengers %}
+                    {% for passenger,interests in people_interests %}
 					<div class="2u column">
-						{{ passenger.person.user.username }}, {%  if passenger.seat_number %}<strong>{{ passenger.seat_number }}</strong> {% endif %}
+						{{ passenger.person.user.username }}{%  if passenger.seat_number %}, <strong>{{ passenger.seat_number }}</strong> {% endif %}
 						<img src="http://placekitten.com/g/175/175"/>
-						<div class="interests">{% for interest in passenger.interests %}INTEREST{% endfor %}</div>
+						<div class="interests">{% for interest in interests %}{{ interest.name }} - {% endfor %}</div>
 					</div>
                     {% endfor %}
 

@@ -43,6 +43,7 @@ class AirlineUser(models.Model):
         return str(self.user.username)
 
 
+
 class PersonOnFlight(models.Model):
     person = models.ForeignKey(AirlineUser)
     hotel = models.ForeignKey(Hotel, null=True)
@@ -50,3 +51,5 @@ class PersonOnFlight(models.Model):
     seat_number = models.CharField(max_length=4)
     def __str__(self):
         return str(self.person.user.username)
+    def get_interests(self):
+        return self.person.interests.all()

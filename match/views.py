@@ -89,7 +89,6 @@ def profile(request):
     flights = []
     for instance in travels:
         flights.append(instance.flight)
-    print flights
     context={}
     context['interest_form']=InterestForm()
     context['description_form']=DescriptionForm()
@@ -163,7 +162,12 @@ def addFlight(request):
 def flight_profiles(request,flight_number):
     flight = Flight.objects.get(pk=flight_number)
     people = PersonOnFlight.objects.filter(flight__pk=flight_number)
+    people_interests = []
+    for person in people:
+        people_interests.append((person,person.get_interests()))
+
     context = {}
+    context['people_interests']=people_interests
     context['passengers']=people
     context['flight']=flight
     context['form']= SeatNumberForm()
