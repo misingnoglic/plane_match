@@ -3,17 +3,16 @@
 {% block title %}Find Flight{% endblock %}
 {% block title2 %}Find Flight{% endblock %}
 {% block content %}
-<div align="center" width="">
+<div align="center">
 <div class="rectangle-box" style="width:30% !important;">
 
 <form action="/find" method="post">
-
     {% csrf_token %}
 
     {% for field in form %}
         <p>{{ field.label_tag }} {{ field }}</p>
     {% endfor %}
-    <input type="submit" value="Submit" />
+    <input id="foo" type="submit" value="Submit" onclick="spin()"  />
 </form>
 </div>
 </div>
