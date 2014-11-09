@@ -31,26 +31,29 @@ def add_interests(request):
     print(current_user.username)
     user = AirlineUser.objects.get(user__pk__exact=current_user.pk)
     if request.method=="POST":
+        print 1
         interest_form = InterestForm(request.POST)
         if interest_form.is_valid():
+            print 2
             text = request.POST['interest']
             L = Interest.objects.filter(name__iexact=text)
             if len(L)<1:
+                print 3
                 interest_object = Interest(name=text)
                 interest_object.save()
             else:
+                print 4
                 interest_object = L[0]
             user.interests.add(interest_object)
-            return redirect('match.views.profile')
+            print 5
+        print 6
+        return redirect('match.views.profile')
 
     else:
-        pass
-    list_of_interests = user.interests.all()
-    #print(list_of_interests)
-
-    form = InterestForm()
-    context = {"form":form, "interests":list_of_interests}
-    return render(request, 'interests.html',context)
+        list_of_interests = user.interests.all()
+        form = InterestForm()
+        context = {"form":form, "interests":list_of_interests}
+        return render(request, 'interests.html',context)
 
 def create_new(request):
     return render(request,'createnew.html')
@@ -83,7 +86,6 @@ def success(request):
 
 def profile(request):
     current_user = request.user
-    print(current_user.username)
     user = AirlineUser.objects.get(user__pk__exact=current_user.pk)
     list_of_interests = user.interests.all()
     context = {'interest_form':InterestForm(), 'description_form':DescriptionForm(),

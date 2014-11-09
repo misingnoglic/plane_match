@@ -8,22 +8,32 @@
             <div class="4u -2u" >
                 <header id="profiletop"><h1>your<span>interests</span></h1>
                 <div class="rectangle-box">
-                <div class='square-box'>
-                    <form action="/addInterest" method="POST">
-                    {% csrf_token %}
-                        {% if form.non_field_errors %}
-                            <ul>
-                              {% for error in form.non_field_errors %}
-                                <li>{{ error }}</li>
-                              {% endfor %}
-                            </ul>
-                        {% endif %}
-                        <input id="interest" type="text" placeholder="Enter an interest!">
-                        {% for field in form %}
-                        <p>{{ field.label_tag }} {{ field }}</p>
+                <table>
+                    {% for interest in interests %}
+                    <tr>
+                        <td>{{ interest.name }}</td>
+                    </tr>
                     {% endfor %}
-                    <input type="submit" value="+ add interest" id="addToProf"/>
-                    </form>
+
+                </table>
+                <div class='square-box'>
+
+                <form action="/interests" method="POST">
+                {% csrf_token %}
+                    {% if form.non_field_errors %}
+                        <ul>
+                          {% for error in form.non_field_errors %}
+                            <li>{{ error }}</li>
+                          {% endfor %}
+                        </ul>
+                    {% endif %}
+                {% for field in form %}
+				    <p>{{ field.label_tag }} {{ field }}</p>
+				{% endfor %}
+
+                <input id="id_interest" maxlength="20" name="interest" type="text">
+                <input type="submit" value="Submit" />
+				</form>
                 </div>
                     </div>
             </div>

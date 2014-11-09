@@ -3,28 +3,27 @@
 {% block title %}Interest{% endblock %}
 
 {% block content %}
-<br>
-    <br>
-    <br>
     <table>
-    <tr>
-        {% for interest in interests %}
-        <td>{{ interest.name }}</td>
-        {% endfor %}
-    </tr>
+        <tr>
+            {% for interest in interests %}
+            <td>{{ interest.name }}</td>
+            {% endfor %}
+        </tr>
     </table>
-                <form action="/interests" method="POST">
-                {% csrf_token %}
-                    {% if form.non_field_errors %}
-                        <ul>
-                          {% for error in form.non_field_errors %}
-                            <li>{{ error }}</li>
-                          {% endfor %}
-                        </ul>
-                    {% endif %}
-                {% for field in form %}
-				    <p>{{ field.label_tag }} {{ field }}</p>
-				{% endfor %}
-                <input type="submit" value="Submit" />
-				</form>
+
+
+    <form action="/interests" method="POST">
+        {% csrf_token %}
+            {% if form.non_field_errors %}
+                <ul>
+                  {% for error in form.non_field_errors %}
+                    <li>{{ error }}</li>
+                  {% endfor %}
+                </ul>
+            {% endif %}
+        {% for field in form %}
+            <p>{{ field.label_tag }} {{ field }}</p>
+        {% endfor %}
+        <input type="submit" value="Submit" />
+    </form>
 {% endblock %}
