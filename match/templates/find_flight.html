@@ -5,7 +5,7 @@
     <title>Find your flight!!</title>
 </head>
 <body>
-<form action="/interests" method="post">
+<form action="/find" method="post">
     {% csrf_token %}
     {{ form.as_table }}
     <input type="submit" value="Submit" />

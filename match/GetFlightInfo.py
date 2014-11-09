@@ -10,12 +10,7 @@ class FlightObject():
 		self.aircraft = aircraft
 	def __str__(self):
 		return str(self.departureTime)+" "+str(self.arrivalTime)+" "+str(self.flightNumber)+" "+str(self.aircraft)
-'''
-testDate = "2014-12-15"
-testOrigin = "BOS"
-testDestination = "SFO"
-testAirline = "AA"
-'''
+
 #date should be formatted yyyy-MM-dd,
 #origin and destination should be 3 digit airport codes 
 #the airline should be a 2 digit IATA code

@@ -34,19 +34,10 @@ class DescriptionForm(forms.Form):
 
 class FindFlightForm(forms.Form):
     airlines = airline_map.keys()
-    CATEGORY_CHOICES = [    # Note square brackets.
-    (1, u'Appetizer'),
-    (2, u'Bread'),
-    (3, u'Dessert'),
-    (4, u'Drinks'),
-    (5, u'Main Course'),
-    (6, u'Salad'),
-    (7, u'Side Dish'),
-    (8, u'Soup'),
-    (9, u'Sauce/Marinade'),
-    (10, u'Other'),
-]
-    depart_date = forms.DateField
+    CATEGORY_CHOICES = []
+    for airline in airlines:
+        CATEGORY_CHOICES.append((airline_map[airline],airline))
+    depart_date = forms.DateField()
     airline = forms.ChoiceField(choices=CATEGORY_CHOICES)
     origin = forms.CharField(max_length=3)
     destination = forms.CharField(max_length=3)

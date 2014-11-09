@@ -4,6 +4,7 @@ from forms import UserCreateForm, InterestForm, DescriptionForm, FindFlightForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 from models import AirlineUser, Interest
+from GetFlightInfo import *
 
 def register(request):
     if request.method == 'POST':
@@ -94,26 +95,20 @@ def profile(request):
     return render(request, 'profile.html', context)
 
 def find_flight(request):
-    form = FindFlightForm()
-    context = {}
-    context['form']=form
-    return render(request, 'find_flight.html',context)
-
-'''def createnew(request):
-    if request.method == 'POST':
-        form = UserCreateForm(request.POST)
+    if request.method == "POST":
+        form = FindFlightForm(request.POST)
         if form.is_valid():
-            departFrom = form.clean_username()
-            departTo = form.clean_password2()
-            departDate = form.
-            form.save()
-            login(request,user)
-            #return render(request,'created_file.html')
-            return redirect('match.views.success')
+
+            airline = form.cleaned_data['airline']
+            origin = form.cleaned_data['origin']
+            destination = form.cleaned_data['destination']
+            date = form.cleaned_data['depart_date']
+            date = date.strftime("%Y-%m-%d")
+            list_of_flights = getFlights(date,origin,destination,airline)
+            return HttpResponse("hi")
     else:
-        form = UserCreateForm()
-        context = {"form":form}
+        form = FindFlightForm()
         context = {}
-        context['form'] = form
-        return render(request, 'register.html',context)
-'''
+        context['form']=form
+        return render(request, 'find_flight.html',context)
+
