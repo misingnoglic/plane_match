@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, HttpResponse
 #from django.contrib.auth.forms import UserCreateForm
 from forms import UserCreateForm
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 # Create your views here.
 
@@ -31,10 +31,10 @@ def create_new(request):
 def index(request):
     return render(request, 'index.html')
 
-def login(request):
+def login_view(request):
     return render(request, 'login.html')
 
-def logout(request):
+def logout_view(request):
     logout(request)
     return render(request, 'logout.html')
 

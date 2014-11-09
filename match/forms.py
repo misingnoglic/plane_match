@@ -19,5 +19,3 @@ class UserCreateForm(UserCreationForm):
 class NewFlight(forms.Form):
     class Meta:
         fields = ("from", "to", "date")
-
-    def save(self, commit=True):
