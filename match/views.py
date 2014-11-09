@@ -194,37 +194,46 @@ def choose_seat(request,flight_number):
     if request.method =="POST":
         seat = SeatNumberForm(request.POST)
         if seat.is_valid():
-            person.seat_number=None
+            person.seat_number=seat.cleaned_data['seat_number']
+            person.save()
+    return redirect('match.views.profile')
+
+def hotel(request,flight_number):
+    current_user = request.user
+    user = AirlineUser.objects.get(user__pk__exact=current_user.pk)
+    flight = Flight.objects.get(pk=flight_number)
+    person = PersonOnFlight.objects.get(person = user, flight__pk=flight_number)
+    hotel = person.hotel
+    people = PersonOnFlight.objects.filter(hotel=hotel)
+    context = {}
+    context['people']=people
+    return render(request,'people_in_hotel.html',context)
 
 def select_hotel(request,flight_number):
     if request.method=="POST":
         hotels = request.session["hotels"]
         current_user = request.user
+        user = AirlineUser.objects.get(user__pk__exact=current_user.pk)
+        person = PersonOnFlight.objects.get(person=user)
 
 
         user = AirlineUser.objects.get(user__pk__exact=current_user.pk)
         hotel_json= json.loads(request.session['hotels'])
         index = int(request.POST['hotel'])
-        flight = hotel_json[index]
+        hotel = hotel_json[index]
         try:
-            flights = Flight.objects.get(number=flight['number'])
-            flight_model= flights
-        except Flight.DoesNotExist:
-            flight_model = Flight(number = flight['number'], destination=flight['destination'],origin = flight['origin'])
-            flight_model.save()
+            hotel_model = Hotel.objects.get(address=hotel['address'])
+        except:
+            hotel_model = Hotel(address = hotel['address'], name=hotel['name'])
+            hotel_model.save()
 
-        try:
-            passengers = PersonOnFlight.objects.get(flight=flight_model,person=user)
-            passenger=passengers[0]
-        except PersonOnFlight.DoesNotExist:
-            passenger = PersonOnFlight(person = user, flight=flight_model)
-            passenger.save()
+        PersonOnFlight.hotel=hotel_model
 
-        return redirect('match.views.profile')
+        return redirect('match.views.hotel')
 
 
     else:
-        radius = 25 #km
+        radius = 10 #km
         flight = Flight.objects.get(pk=flight_number)
         city = flight.origin
         hotels = hotelsNearAirport(city, radius)
@@ -237,14 +246,15 @@ def select_hotel(request,flight_number):
         hotels = hotel_temp
         request.session["hotels"]= json.dumps(hotels)
         context = {}
-        context['hotels'] = list(enumerate(hotels))
-        return render(request,'choose_your_flight.html',context)
+        context['hotels'] = list(enumerate([h['name'] for h in hotels]))
+        return render(request,'select_hotel.html',context)
 
 
 def send(request, friend_id):
     current_user = request.user
     friend = PersonOnFlight.objects.get(pk=friend_id)
     email = friend.person.user.email
+<<<<<<< HEAD
     if request.method=="POST":
         form = EmailForm(request.POST)
         if form.is_valid():
@@ -272,3 +282,6 @@ def send(request, friend_id):
         context['email'] = email
         context['form'] = form
         return render(request, 'send.html',context)
+=======
+
+>>>>>>> origin/master

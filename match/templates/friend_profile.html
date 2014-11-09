@@ -1,13 +1,18 @@
 {% extends "base.html" %}
 
-{% block title %}{{ friend }}'s Profile{% endblock %}
 {% block title2 %}{{ friend }}'s Profile{% endblock %}
 {% block content %}
+<<<<<<< HEAD
 
 				<section class="wrapper style3 container" padding="0px">
 					<div class="row" padding="0px">
 						<div class="6u" padding="0px">
 							Profile:
+=======
+				<section class="wrapper style3 container" padding="0px">
+					<div class="row">
+						<div class="6u" padding="""0px">
+                          <header id="profiletop"><h1>{{ friend }}'s <span>profile</span></h1>
 							<div class='square-box'>
 						    	<div class='square-content' id="user_profile"><div>
 						    		<img src="http://placekitten.com/g/225/225">
@@ -15,23 +20,18 @@
 							</div>
 						</div>
 						<div class="6u">
-							<strong>INTERESTS</strong>:
+                <header id="profiletop"><h1>{{ friend }}'s <span>interests</span></h1>
 							<div class="interests">
 						     {% for interest in interests %} {{ interest }}, {% endfor %}
+                            <br><br><br><br><br><br>
                             <div>
                                 <a href="/profile/{{ friend.pk }}/send" class="button special">Message</a>
+                                <a href="/send" class="button special">Message</a>
                             </div>
 
 						</div>
 					</div>
 				</section>
-				<script>
-					$(document).ready(function () {
 
-					    // Set the .alt class for the alternate rows
-					    $('.alt-table tr:nth-child(even)').addClass('alt');
-					    $('.alt-table tr:nth-child(odd)').addClass('alt2');
-					});
-				</script>
 
 {% endblock %}
