@@ -28,5 +28,9 @@ class AirlineUser(models.Model):
     #friends_made = 0
     user = models.ForeignKey(User)
     hobbies = models.ManyToManyField(Category)
+
+
+class PersonOnFlight(models.Model):
+    person = models.ForeignKey(AirlineUser)
     hotel = models.ForeignKey(Hotel)
     flight = models.ForeignKey(Flight)

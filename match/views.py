@@ -44,7 +44,7 @@ def success(request):
     else:
         return HttpResponse("idk")
 
-def createnew(request):
+'''def createnew(request):
     if request.method == 'POST':
         form = UserCreateForm(request.POST)
 
@@ -62,3 +62,4 @@ def createnew(request):
         context = {}
         context['form'] = form
         return render(request, 'register.html',context)
+'''
