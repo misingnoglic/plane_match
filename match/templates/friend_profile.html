@@ -3,17 +3,7 @@
 {% block title %}{{ friend }}'s Profile{% endblock %}
 {% block title2 %}{{ friend }}'s Profile{% endblock %}
 {% block content %}
-<h2>&nbsp;</h2>		
-			<h2><center>FUTURE FRIENDS ON FLIGHT {{ flight.number }} FROM {{ flight.origin }} TO {{ flight.destination }}</center></h2><p>
-				
-			<header class="container" padding="""0px"></span>
-				  <!-- <h2><center>{{ friend }}'s PROFILE</center></h2><p> -->
-				</header>
-
-
-				</nav>
-
-				<section class="wrapper style3 container" padding="""0px">
+				<section class="wrapper style3 container" padding="0px">
 					<div class="row">
 						<div class="6u" padding="""0px">
 							Profile:
@@ -27,8 +17,8 @@
 							<strong>INTERESTS</strong>:
 							<div class="interests">
 						     {% for interest in interests %} {{ interest }}, {% endfor %}
+                            <br><br><br><br><br><br>
                             <div>
-                                <a href="/send" class="button special">Message</a>
                                 <a href="/send" class="button special">Message</a>
                             </div>
 
