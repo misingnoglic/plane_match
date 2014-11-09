@@ -1159,15 +1159,13 @@
     position: relative;
     width: 100%;
     overflow: hidden;
-    background: #4679BD;
 }
 .rectangle-box:before{
     content: "";
-    display: block;
     padding-top: 50%;
 }
 .rectangle-content{
-    position:  absolute;
+
     top: 0;
     left: 0;
     bottom: 0;
@@ -1176,13 +1174,15 @@
 }
 
  .alt {
-    background-color:#336699;
+    background-color: #336699;
+}
+ .alt2 {
+    background-color:#83d3c9;
 }
 #user_profile{
     background: #336699;
 }
 #current_flights{
-    background: #83d3c9;
 }
 
 .add-btn {
