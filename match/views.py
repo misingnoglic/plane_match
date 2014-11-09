@@ -1,11 +1,12 @@
 from django.shortcuts import render, redirect, HttpResponse
 #from django.contrib.auth.forms import UserCreateForm
-from forms import UserCreateForm, InterestForm, DescriptionForm, FindFlightForm
+from forms import UserCreateForm, InterestForm, DescriptionForm, FindFlightForm, SeatNumberForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 from models import AirlineUser, Interest, Flight, PersonOnFlight
 from GetFlightInfo import *
 import json
+
 
 def register(request):
     if request.method == 'POST':
@@ -161,15 +162,21 @@ def addFlight(request):
 
 def flight_profiles(request,flight_number):
     flight = Flight.objects.get(pk=flight_number)
-    people = PersonOnFlight.object.filter(flight=flight)
+    people = PersonOnFlight.objects.filter(flight__pk=flight_number)
     context = {}
-    context['people']=people
-    return render(request,'flight_profiles.html',context)
+    context['passengers']=people
+    context['flight']=flight
+    context['form']= SeatNumberForm()
+    return render(request,'flight_users.html',context)
+
 
 def choose_seat(request,flight_number):
     current_user = request.user
     user = AirlineUser.objects.get(user__pk__exact=current_user.pk)
     flight = Flight.objects.get(pk=flight_number)
     person = PersonOnFlight.objects.get(person = user, flight__pk=flight_number)
-    person.seat_number=None
+    if request.method =="POST":
+        seat = SeatNumberForm(request.POST)
+        if seat.is_valid():
+            person.seat_number=None
 

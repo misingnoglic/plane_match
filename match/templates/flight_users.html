@@ -4,43 +4,30 @@
 {% block title2 %}Find Flight{% endblock %}
 {% block content %}
 <h2>&nbsp;</h2>		
-			<h2><center>FUTURE FRIENDS ON YOUR FLIGHT FROM BOSTON TO PORTLAND</center></h2><p>
+			<h2><center>FUTURE FRIENDS ON FLIGHT {{ flight.number }} FROM {{ flight.origin }} TO {{ flight.destination }}</center></h2><p>
 				
 				<div class="row">
 					<div class="1u column">
 						&nbsp;
 					</div>
+                    {% for passenger in passengers %}
 					<div class="2u column">
-						Bobby Boe, <strong>36F</strong>
+						{{ passenger.person.user.username }}, {%  if passenger.seat_number %}<strong>{{ passenger.seat_number }}</strong> {% endif %}
 						<img src="http://placekitten.com/g/175/175"/>
-						<div class="interests">baseball, cats</div>
+						<div class="interests">{% for interest in passenger.interests %}INTEREST{% endfor %}</div>
 					</div>
-					<div class="2u column">
-						Jennay Jane, <strong>15D</strong>
+                    {% endfor %}
 
-						<img src="http://placekitten.com/g/175/175"/>
-						<div class="interests">kittens, boxes of chocolates</div>
-					</div>
-					<div class="2u column">
-						Forrest Gump, <strong>5E</strong>
-						<img src="http://placekitten.com/g/175/175"/>
-						<div class="interests">shrimp, cats</div>
-					</div>
-					<div class="2u column">
-						Betty Boop, <strong>23A</strong>
-						<img src="http://placekitten.com/g/175/175"/>
-						<div class="interests">felines, spinach</div>
-					</div>
-					<div class="2u column" onclick="">
-						Chuck Testa, <strong>1A</strong>
-
-						<img src="http://placekitten.com/g/175/175"/>
-						<div class="interests">nope, chuck testa</div>
-					</div>
 					<div class="1u column">
 	 					&nbsp;					
 					</div>
 				</div>
+                <div>Chose a seat?</div>
+                <form action="/flight/{{ flight.pk }}/seat" method="post">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                <input type="submit" value="Submit" "/>
+                </form>
 
 
 {% endblock %}
