@@ -1,0 +1,107 @@
+﻿Merge branch 'master' of https://github.com/misingnoglic/plane_match
+
+Conflicts:
+	db.sqlite3
+#
+# It looks like you may be committing a merge.
+# If this is not correct, please remove the file
+#	.git/MERGE_HEAD
+# and try again.
+
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+# On branch master
+# Your branch and 'origin/master' have diverged,
+# and have 1 and 1 different commit each, respectively.
+#   (use "git pull" to merge the remote branch into yours)
+#
+# All conflicts fixed but you are still merging.
+#
+# Changes to be committed:
+#	deleted:    .DS_Store
+#	deleted:    db.sqlite3
+#	modified:   html/css/font-awesome.min.css
+#	modified:   html/css/images/dark-bl.svg
+#	modified:   html/css/images/dark-br.svg
+#	modified:   html/css/images/dark-tl.svg
+#	modified:   html/css/images/dark-tr.svg
+#	modified:   html/css/images/light-bl.svg
+#	modified:   html/css/images/light-br.svg
+#	modified:   html/css/images/light-tl.svg
+#	modified:   html/css/images/light-tr.svg
+#	modified:   html/css/images/overlay.png
+#	modified:   html/css/skel.css
+#	modified:   html/css/style-noscript.css
+#	modified:   html/css/style-wide.css
+#	modified:   html/css/style.css
+#	modified:   html/fonts/fontawesome-webfont78ce.eot
+#	modified:   html/fonts/fontawesome-webfont78ce.html
+#	modified:   html/fonts/fontawesome-webfont78ce.svg
+#	modified:   html/fonts/fontawesome-webfont78ce.woff
+#	modified:   html/fonts/fontawesome-webfontd41d.eot
+#	modified:   html/index.html
+#	modified:   html/js/init.js
+#	modified:   html/js/jquery.dropotron.min.js
+#	modified:   html/js/jquery.min.js
+#	modified:   html/js/jquery.scrollgress.min.js
+#	modified:   html/js/jquery.scrolly.min.js
+#	modified:   html/js/skel-layers.min.js
+#	modified:   html/js/skel.min.js
+#	modified:   manage.py
+#	modified:   match/static/css/font-awesome.min.css
+#	modified:   match/static/css/images/dark-bl.svg
+#	modified:   match/static/css/images/dark-br.svg
+#	modified:   match/static/css/images/dark-tl.svg
+#	modified:   match/static/css/images/dark-tr.svg
+#	modified:   match/static/css/images/light-bl.svg
+#	modified:   match/static/css/images/light-br.svg
+#	modified:   match/static/css/images/light-tl.svg
+#	modified:   match/static/css/images/light-tr.svg
+#	modified:   match/static/css/images/overlay.png
+#	modified:   match/static/css/skel.css
+#	modified:   match/static/css/style-noscript.css
+#	modified:   match/static/css/style-wide.css
+#	modified:   match/static/css/style.css
+#	modified:   match/static/fonts/fontawesome-webfont78ce.eot
+#	modified:   match/static/fonts/fontawesome-webfont78ce.html
+#	modified:   match/static/fonts/fontawesome-webfont78ce.svg
+#	modified:   match/static/fonts/fontawesome-webfont78ce.woff
+#	modified:   match/static/fonts/fontawesome-webfontd41d.eot
+#	modified:   match/static/images/equip/equip_001.png
+#	modified:   match/static/images/equip/equip_002.png
+#	modified:   match/static/images/equip/equip_003.png
+#	modified:   match/static/images/equip/equip_004.png
+#	modified:   match/static/images/equip/equip_005.png
+#	modified:   match/static/images/equip/equip_006.png
+#	modified:   match/static/images/equip/equip_007.png
+#	modified:   match/static/images/equip/equip_008.png
+#	modified:   match/static/images/equip/equip_009.png
+#	modified:   match/static/images/equip/equip_010.png
+#	modified:   match/static/images/equip/equip_011.png
+#	modified:   match/static/images/equip/equip_013.png
+#	modified:   match/static/images/equip/equip_014.png
+#	modified:   match/static/images/equipt/equip_001.html
+#	modified:   match/static/images/equipt/equip_002.html
+#	modified:   match/static/images/equipt/equip_003.html
+#	modified:   match/static/images/equipt/equip_004.html
+#	modified:   match/static/images/equipt/equip_005.html
+#	modified:   match/static/images/equipt/equip_006.html
+#	modified:   match/static/images/equipt/equip_007.html
+#	modified:   match/static/images/equipt/equip_008.html
+#	modified:   match/static/images/equipt/equip_009.html
+#	modified:   match/static/images/equipt/equip_010.html
+#	modified:   match/static/images/equipt/equip_011.html
+#	modified:   match/static/images/equipt/equip_013.html
+#	modified:   match/static/images/equipt/equip_014.html
+#	modified:   match/static/js/init.js
+#	modified:   match/static/js/jquery.dropotron.min.js
+#	modified:   match/static/js/jquery.min.js
+#	modified:   match/static/js/jquery.scrollgress.min.js
+#	modified:   match/static/js/jquery.scrolly.min.js
+#	modified:   match/static/js/skel-layers.min.js
+#	modified:   match/static/js/skel.min.js
+#	modified:   match/templates/index.html
+#	deleted:    plane_match/.DS_Store
+#
+
