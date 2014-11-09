@@ -19,10 +19,15 @@ def register(request):
             return redirect('match.views.success')
     else:
         form = UserCreateForm()
-        context = {"form":form}
+        #context = {"form":form}
         context = {}
         context['form'] = form
         return render(request, 'register.html',context)
+
+def add_interests(request):
+    form = InterestForm()
+    context = {"form":form}
+    return render(request, 'interests.html',context)
 
 def create_new(request):
     return render(request,'createnew.html')

@@ -23,7 +23,7 @@ class LoginForm(forms.Form):
     password = forms.CharField(widget=forms.PasswordInput())
 
 class InterestForm(forms.Form):
-    #interest = forms.CharField(max_length=20)
+    interest = forms.CharField(max_length=20)
     class Meta:
         model = Interest
         fields = ("interest")
