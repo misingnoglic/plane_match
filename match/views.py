@@ -239,3 +239,7 @@ def select_hotel(request,flight_number):
         context['hotels'] = list(enumerate(hotels))
         return render(request,'choose_your_flight.html',context)
 
+
+def send(request, friend_id):
+    friend = PersonOnFlight.objects.get(pk=friend_id)
+    email = friend.person.user.email

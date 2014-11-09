@@ -21,4 +21,6 @@ urlpatterns = patterns('',
     #url(r'^flight/(\d+)/hotel$', views.select_hotel, name='select_hotel'),
 
     url(r'^flight/(\d+)/hotel_select$', views.select_hotel, name='select_hotel'),
+    url(r'send', views.send, name='send'),
+
 )
