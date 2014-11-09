@@ -31,6 +31,9 @@ def create_new(request):
 def index(request):
     return render(request, 'index.html')
 
+def login(request):
+    return render(request, 'login.html')
+
 def success(request):
     if request.user.is_authenticated():
         return render(request, 'success.html')
