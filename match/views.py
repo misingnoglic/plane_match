@@ -3,7 +3,6 @@ from django.shortcuts import render, redirect, HttpResponse
 from forms import UserCreateForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
-# Create your views here.
 
 def register(request):
     if request.method == 'POST':
@@ -32,7 +31,17 @@ def index(request):
     return render(request, 'index.html')
 
 def login_view(request):
-    return render(request, 'login.html')
+    if request.method == "POST":
+        username = request.POST['username']
+        password = request.POST['password']
+        user = authenticate(username=username, password=password)
+        if user:
+            login(request,user)
+            return redirect('match.views.index')
+        else:
+            return HttpResponse("WRONG")
+    else:
+        return render(request, 'login.html')
 
 def logout_view(request):
     logout(request)

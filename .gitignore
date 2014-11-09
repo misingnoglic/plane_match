@@ -111,7 +111,9 @@ atlassian-ide-plugin.xml
 # Crashlytics plugin (for Android Studio and IntelliJ)
 com_crashlytics_export_strings.xml
 
-secrets.py
+*/secrets.py
 
 .DS_STORE
 db.sqlite3
+
+match/secrets.py
