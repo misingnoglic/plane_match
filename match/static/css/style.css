@@ -530,9 +530,14 @@
 		input[type="button"].special,
 		input[type="submit"].special,
 		input[type="reset"].special,
-		.button.special {
+.button.special {
 			background: #83d3c9;
 			border-color: #83d3c9;
+			color: white !important;
+		}
+		.button.special2 {
+			background: #336699;
+			border-color: #336699;
 			color: white !important;
 		}
 
@@ -543,7 +548,13 @@
 				background: #96dad1 !important;
 				border-color: #96dad1 !important;
 			}
-
+			input[type="button"].special2:hover,
+			input[type="submit"].special2:hover,
+			input[type="reset"].special2:hover,
+			.button.special2:hover {
+				background: #336699 !important;
+				border-color: #336699 !important;
+			}
 		input[type="button"].fit,
 		input[type="submit"].fit,
 		input[type="reset"].fit,
@@ -600,10 +611,22 @@
 			color: inherit;
 		}
 
-		.wrapper.style4 {
-			background: white;
-			color: inherit;
-			padding: 4em;
+
+		.style4 {
+
+			background: gray;
+			color: white;
+			padding: .2em;
+			margin-bottom: 0em;
+			height:2% !important;
+			max-height:10% !important;
+			
+		}
+		
+		.special-pad{
+			padding-left:4.5em;
+			padding-right:4.5em;
+			letter-spacing: 3px;
 		}
 
 		.wrapper.styleME{
@@ -1096,29 +1119,17 @@
 			display: inline-block;
 			width: 5em;
 		}
-
-#current_flights{
-	margin-left: auto;
-	margin-right: auto;
-	border-style: solid;
-    border-width: 5px;	
-	/* width: (containers) */
-	width: 300px;
-	height:300px
-}
-
-.box{
+.square-box{
     position: relative;
     width: 50%;
     overflow: hidden;
-    background: #4679BD;
 }
-.box:before{
+.square-box:before{
     content: "";
     display: block;
     padding-top: 100%;
 }
-.user_profile{
+.square-content{
     position:  absolute;
     top: 0;
     left: 0;
@@ -1126,20 +1137,90 @@
     right: 0;
     color: white;
 }
-.user_profile div {
+.square-content div {
    display: table;
    width: 100%;
    height: 100%;
 }
-.user_profile span {
+.square-content span {
     display: table-cell;
     text-align: center;
     vertical-align: middle;
-    color: white
+    color: white;
+}
+.square-content img {
+	width:100%;
+	height:100%;
+}
+
+
+
+.rectangle-box{
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    background-color: white;
+    padding:1em;
+}
+.rectangle-box:before{
+    content: "";
+    padding-top: 50%;
+}
+.rectangle-content{
+
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    color: white;
+}
+
+ .alt {
+    background-color: #336699;
+}
+ .alt2 {
+    background-color:#83d3c9;
 }
 #user_profile{
     background: #336699;
 }
 #current_flights{
-    background: #83d3c9;
 }
+
+.add-btn {
+  background: #3498db;
+  background-image: -webkit-linear-gradient(top, #3498db, #2980b9);
+  background-image: -moz-linear-gradient(top, #3498db, #2980b9);
+  background-image: -ms-linear-gradient(top, #3498db, #2980b9);
+  background-image: -o-linear-gradient(top, #3498db, #2980b9);
+  background-image: linear-gradient(to bottom, #3498db, #2980b9);
+  -webkit-border-radius: 28;
+  -moz-border-radius: 28;
+  border-radius: 28px;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 20px;
+  padding: 3px 20px 3px 20px;
+  text-decoration: none;
+  border:none;
+}
+
+.add-btn:hover {
+  background: #3cb0fd;
+  background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
+  text-decoration: none;
+}
+
+#profiletop h1 {
+			font-weight: 900;
+			margin: 0;
+            font-size:1.5em;
+		}
+
+			#profiletop h1 span {
+				font-weight: 300;
+			}

@@ -1,13 +1,13 @@
 {% extends "base2.html" %}
 
+{% block title %}Create New Flight{% endblock %}
+
 {% block content %}
 	<section id="banner">
 		<div class="inner">
 		<header>
 		  <h2>Create a new flight</h2>
 		</header>
-		<p>Let's get started!<br>
-		</br>
         <p>
             <form action="/createnew" method="POST">
             {% csrf_token %}
@@ -21,10 +21,10 @@
             {% for field in form %}
                 <p>{{ field.label_tag }} {{ field }}</p>
             {% endfor %}
-            <input type="OK!" value="Submit" />
+            <input type="submit" value="Ok!" />
             </form>
 
 
         </p>
-	</div>
+	</section>
         {% endblock %}
