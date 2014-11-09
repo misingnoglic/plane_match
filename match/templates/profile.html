@@ -42,11 +42,17 @@
 
                     <div class='rectangle-content' id="current_flights">
                      <table class="alt-table">
+                            <tr>
+                                <td style="color: gray !important;">FLIGHT NUMBER</td>
+                                <td style="color: gray !important;">ORIGIN</td>
+                                <td style="color: gray !important;">DESTINATION</td>
+                            </tr>
                          {% for flight in flights %}
                             <tr>
-                                <td>{{ flight.number }}</td>
-                                <td>{{ flight.destination }}</td>
-                                <td>{{ flight.origin }}</td>
+                                <td style="color: gray !important;"><a href="/flight/{{ flight.pk }}">{{ flight.number }}</a></td>
+                                <td style="color: gray !important;">{{ flight.destination }}</td>
+                                <td style="color: gray !important;">{{ flight.origin }}</td>
+
                             </tr>
                          {% endfor %}
                     </table>
