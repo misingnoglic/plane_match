@@ -16,7 +16,6 @@
                     {% endfor %}
 
                 </table>
-                <div class='square-box'>
 
                 <form action="/interests" method="POST">
                 {% csrf_token %}
@@ -32,10 +31,10 @@
 				{% endfor %}
 
                 <input id="id_interest" maxlength="20" name="interest" type="text">
+                <br>
                 <input type="submit" value="+ add interest" />
 				</form>
                 </div>
-            </div>
             </div>
             <div class="4u">
                 <header id="profiletop"><h1>current<span>flights</span></h1>
