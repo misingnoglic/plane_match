@@ -22,7 +22,7 @@
 	 					&nbsp;					
 					</div>
 				</div>
-                <div>Chose a seat?</div>
+                <div>Need to choose a seat?</div>
                 <form action="/flight/{{ flight.pk }}/seat" method="post">
                     {% csrf_token %}
                     {{ form.as_p }}
