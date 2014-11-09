@@ -18,8 +18,9 @@ urlpatterns = patterns('',
     url(r'^addflight$',views.addFlight, name='add_flight'),
     url(r'^flight/(\d+)/$', views.flight_page, name='flight_page'),
     url(r'^flight/(\d+)/profiles$', views.flight_profiles, name='flight_profiles'),
-    url(r'^flight/(\d+)/hotel$', views.hotel, name='hotel'),
+    #url(r'^flight/(\d+)/hotel$', views.select_hotel, name='select_hotel'),
 
     url(r'^flight/(\d+)/hotel_select$', views.select_hotel, name='select_hotel'),
+    url(r'send', views.send, name='send'),
 
 )

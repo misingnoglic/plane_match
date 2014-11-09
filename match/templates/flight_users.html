@@ -5,24 +5,40 @@
 {% block title2 %}Future Friends on Flight {{ flight.number }} FROM {{ flight.origin }} TO {{ flight.destination }}{% endblock %}
 {% block content %}
 <h2>&nbsp;</h2>
+
+		<div class="profile-container">
+
 				<div class="row">
 					<div class="1u column">
 						&nbsp;
 					</div>
                     {% for passenger,interests in people_interests %}
+					<div class="2u column">
+                    <div>{{ passenger.person.user.username }}{%  if passenger.seat_number %}, <strong>{{ passenger.seat_number }}</strong> {% endif %}</div>
+                        <a href="\profile\{{ passenger.pk }}"> <img src="http://placekitten.com/g/175/175"/></a>
+						<div class="interests">
+                            {% for interest in interests %}{{ interest.name }}, {% endfor %}
+                        </div>
+                    </div>
+                  {% endfor %}
 
-            		<div class="2u column align="center">
-					{{ passenger.person.user.username }}{%  if passenger.seat_number %}, <strong>{{ passenger.seat_number }}</strong> {% endif %}
-					    <a href="\profile\{{ passenger.pk }}"> <img src="http://placekitten.com/g/175/175"/></a>
-						<div class="interests">{% for interest in interests %}{{ interest.name }}, {% endfor %}</div>
+					<div class="1u column">
+	 					&nbsp;
 					</div>
-                    {% endfor %}
-                    </br></br></br></br></br></br>
-                    <form action="/flight/{{ flight.pk }}/seat" method="post">
-                        {% csrf_token %}
-                        Choose a seat{{ form.as_p }}
-                        <input type="submit" value="Submit"/>
-                    </form>
+				</div>
+            </br></br></br></br>
+
+				<div class="row">
+                    <div class="3u -1u">
+                        <form action="/flight/{{ flight.pk }}/seat" method="post">
+                                No seat? We gotcha.
+                                <div style="background-color:white;">
+                                {% csrf_token %}
+                                {{ form.as_p }}
+                                </div>
+                                <input type="submit" value="Submit"/>
+                        </form>
+                    </div>
                 </div>
 
 
