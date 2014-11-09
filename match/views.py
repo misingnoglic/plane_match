@@ -1,12 +1,14 @@
 from django.shortcuts import render, redirect, HttpResponse
 #from django.contrib.auth.forms import UserCreateForm
-from forms import UserCreateForm, InterestForm, DescriptionForm, FindFlightForm, SeatNumberForm
+from forms import UserCreateForm, InterestForm, EmailForm, FindFlightForm, SeatNumberForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 from models import AirlineUser, Interest, Flight, PersonOnFlight
 from GetFlightInfo import *
 from GetHotelData import *
 import json
+import sendgrid
+from secrets import *
 
 
 def register(request):
@@ -92,7 +94,6 @@ def profile(request):
         flights.append(instance.flight)
     context={}
     context['interest_form']=InterestForm()
-    context['description_form']=DescriptionForm()
     context['interests']=list_of_interests
     context['flights']=flights
 
@@ -250,6 +251,35 @@ def select_hotel(request,flight_number):
 
 
 def send(request, friend_id):
+    current_user = request.user
     friend = PersonOnFlight.objects.get(pk=friend_id)
     email = friend.person.user.email
+
+    if request.method=="POST":
+        form = EmailForm(request.POST)
+        if form.is_valid():
+            message_email = form.cleaned_data['email']
+
+            to_email = email
+            from_email = current_user.email
+            from_user = current_user.username
+            body = message_email
+
+            message = sendgrid.Mail()
+            message.add_to(to_email)
+            message.set_from(from_email)
+            message.set_subject("new message from " + from_user + " on PlaneMatch")
+            messagebody = "You have recieved a message from the user " + from_user + ": <br><br>" + body
+            sg = sendgrid.SendGridClient(sendgrid_user, sendgrid_pass)
+            status, msg = sg.send(message)
+
+            email
+            return HttpResponse("Yay you sent the email!")
+    else:
+        form = EmailForm()
+        context={}
+        context['friend'] = friend
+        context['email'] = email
+        context['form'] = form
+        return render(request, 'send.html',context)
 
