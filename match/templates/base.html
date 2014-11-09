@@ -5,7 +5,7 @@
 <head>
     {% load static from staticfiles %}
 
-		<title>Log in</title>
+		<title>{% block title %}{% endblock %}</title>
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 		<meta name="description" content="" />
 		<meta name="keywords" content="" />
@@ -32,8 +32,8 @@
 		
 			<article id="main">
 
-				<header class="container" padding: "0px"></span>
-				  <h2><center>{% block title %} {% endblock %}</center></h2><p><hr>
+				<header class="container"></span>
+				  <h2><center>{% block title2 %} {% endblock %}</center></h2><p><hr>
 				</header>
 					
 			<div id="content">{% block content %} {% endblock %}
