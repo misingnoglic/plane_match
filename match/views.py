@@ -173,6 +173,17 @@ def flight_profiles(request,flight_number):
     context['form']= SeatNumberForm()
     return render(request,'flight_users.html',context)
 
+def friend_profile(request,friend_id):
+    friend = PersonOnFlight.objects.get(pk=friend_id)
+    flight = Flight.objects.get(persononflight__pk=friend_id)
+    print flight.number
+    interests = friend.get_interests()
+    context = {}
+    context['interests']=interests
+    context['friend']=friend
+    context['flight']=flight
+    return render(request,'friend_profile.html',context)
+
 
 def choose_seat(request,flight_number):
     current_user = request.user
