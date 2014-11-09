@@ -53,6 +53,9 @@ def success(request):
     else:
         return HttpResponse("idk")
 
+def profile(request):
+    return render(request, 'profile.html')
+
 '''def createnew(request):
     if request.method == 'POST':
         form = UserCreateForm(request.POST)
