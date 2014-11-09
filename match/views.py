@@ -143,7 +143,7 @@ def addFlight(request):
         flight = flight_json[index]
         try:
             flights = Flight.objects.get(number=flight['number'])
-            flight_model= flights[0]
+            flight_model= flights
         except Flight.DoesNotExist:
             flight_model = Flight(number = flight['number'], destination=flight['destination'],origin = flight['origin'])
             flight_model.save()
@@ -198,6 +198,28 @@ def choose_seat(request,flight_number):
 def select_hotel(request,flight_number):
     if request.method=="POST":
         hotels = request.session["hotels"]
+        current_user = request.user
+
+
+        user = AirlineUser.objects.get(user__pk__exact=current_user.pk)
+        hotel_json= json.loads(request.session['hotels'])
+        index = int(request.POST['hotel'])
+        flight = hotel_json[index]
+        try:
+            flights = Flight.objects.get(number=flight['number'])
+            flight_model= flights
+        except Flight.DoesNotExist:
+            flight_model = Flight(number = flight['number'], destination=flight['destination'],origin = flight['origin'])
+            flight_model.save()
+
+        try:
+            passengers = PersonOnFlight.objects.get(flight=flight_model,person=user)
+            passenger=passengers[0]
+        except PersonOnFlight.DoesNotExist:
+            passenger = PersonOnFlight(person = user, flight=flight_model)
+            passenger.save()
+
+        return redirect('match.views.profile')
 
 
     else:
