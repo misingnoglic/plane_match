@@ -1182,8 +1182,6 @@
 #user_profile{
     background: #336699;
 }
-#current_flights{
-}
 
 .add-btn {
   background: #3498db;
@@ -1211,4 +1209,21 @@
   background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
   background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
   text-decoration: none;
+}
+
+.column{
+	text-align: center;
+}
+.interests{
+	font-size:.7em
+}
+.profile-container{
+	background-color:none;
+	position:relative;
+}
+.row-table{
+	padding:5px;
+}
+.elements{
+	padding:5px,5px,0px,0px;
 }

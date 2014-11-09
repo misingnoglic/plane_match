@@ -27,7 +27,17 @@
 
 			<header id="header">
 			  <h1 id="logo"><a href="index">PLANE<span>MATCH</span></a></h1>
-
+			<nav id="nav">
+			  		<ul>
+                        {% if user.is_authenticated %}
+                            <li><a href="profile" class="button special">Profile</a></li>
+                            <li><a href="logout" class="button special2">Logout</a></li>
+                        {% else %}
+                            <li><a href="login" class="button special">Log in</a></li>
+						    <li><a href="register" class="button special2">Register</a></li>
+                        {% endif %}
+					</ul>
+				</nav>
 			</header>
 		
 			<article id="main">
