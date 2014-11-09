@@ -34,6 +34,10 @@ def index(request):
 def login(request):
     return render(request, 'login.html')
 
+def logout(request):
+    logout(request)
+    return render(request, 'logout.html')
+
 def success(request):
     if request.user.is_authenticated():
         return render(request, 'success.html')
