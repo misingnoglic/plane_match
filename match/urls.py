@@ -13,6 +13,8 @@ urlpatterns = patterns('',
     url(r'^logout$', views.logout_view, name='logout'),
     url(r'^profile$', views.profile, name='profile'),
     url(r'^profile/(\d+)/$', views.friend_profile, name='friend_profile'),
+    url(r'^profile/(\d+)/send', views.send, name='send_message'),
+
     url(r'^interests$', views.add_interests, name='interests'),
     url(r'^find$', views.find_flight, name='find_flight'),
     url(r'^addflight$',views.addFlight, name='add_flight'),
@@ -21,6 +23,6 @@ urlpatterns = patterns('',
     #url(r'^flight/(\d+)/hotel$', views.select_hotel, name='select_hotel'),
 
     url(r'^flight/(\d+)/hotel_select$', views.select_hotel, name='select_hotel'),
-    url(r'send', views.send, name='send'),
+
 
 )

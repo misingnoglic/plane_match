@@ -1,31 +1,21 @@
 {% extends "base.html" %}
 
 {% block title %}Contact Friends{% endblock %}
-{% block title2 %}Contact {{ friend }} FROM {{ flight.origin }} TO {{ flight.destination }}{% endblock %}
+{% block title2 %}Contact {{ friend }}{% endblock %}
 {% block content %}
-<h2>&nbsp;</h2>
-				<div class="row">
-					<div class="1u column">
-						&nbsp;
-					</div>
-                    {% for passenger,interests in people_interests %}
-					<div class="2u column">
-						{{ passenger.person.user.username }}{%  if passenger.seat_number %}, <strong>{{ passenger.seat_number }}</strong> {% endif %}
-						<a href="\profile\{{ passenger.pk }}"> <img src="http://placekitten.com/g/175/175"/></a>
-						<div class="interests">{% for interest in interests %}{{ interest.name }} - {% endfor %}</div>
-					</div>
-                    {% endfor %}
-
-					<div class="1u column">
-	 					&nbsp;
-					</div>
-				</div>
-                <div>Need to choose a seat?</div>
-                <form action="/flight/{{ flight.pk }}/seat" method="post">
-                    {% csrf_token %}
-                    {{ form.as_p }}
-                <input type="submit" value="Submit" "/>
-                </form>
-
+    <section class="wrapper style3 container" padding="0px">
+					<div class="row" padding="0px">
+						<div class="12u" padding="0px">
+                            <center>
+                            Say hello to {{ friend }}! Type your email in the box below. If they confirm that they want to sit with you, you will get a confirmation.
+                            <form action="" method="post">
+                                {% csrf_token %}
+                                {{ form.as_p }}
+                            <input type="submit" value="send!" "/>
+                            </form>
+                            </center>
+                        </div>
+                    </div>
+    </section>
 
 {% endblock %}

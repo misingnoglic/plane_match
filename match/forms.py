@@ -28,9 +28,9 @@ class InterestForm(forms.Form):
         model = Interest
         fields = ("interest")
 
-class DescriptionForm(forms.Form):
+class EmailForm(forms.Form):
     #Form for putting the description of what you want to do on flight
-    description = forms.CharField(widget = forms.Textarea)
+    email = forms.CharField(widget = forms.Textarea)
 
 class FindFlightForm(forms.Form):
     airlines = airline_map.keys()
