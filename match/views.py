@@ -139,7 +139,6 @@ def addFlight(request):
         current_user = request.user
         user = AirlineUser.objects.get(user__pk__exact=current_user.pk)
         flight_json= json.loads(request.session['flight'])
-        print flight_json
         index = int(request.POST['flight'])
         flight = flight_json[index]
         try:
@@ -148,13 +147,13 @@ def addFlight(request):
         except Flight.DoesNotExist:
             flight_model = Flight(number = flight['number'], destination=flight['destination'],origin = flight['origin'])
             flight_model.save()
-        finally:
-            try:
-                passengers = PersonOnFlight.objects.get(flight=flight_model,person=user)
-                passenger=passengers[0]
-            except PersonOnFlight.DoesNotExist:
-                passenger = PersonOnFlight(person = user, flight=flight_model)
-                passenger.save()
+
+        try:
+            passengers = PersonOnFlight.objects.get(flight=flight_model,person=user)
+            passenger=passengers[0]
+        except PersonOnFlight.DoesNotExist:
+            passenger = PersonOnFlight(person = user, flight=flight_model)
+            passenger.save()
 
         return redirect('match.views.profile')
         #return HttpResponse("Yay")
@@ -197,13 +196,24 @@ def choose_seat(request,flight_number):
             person.seat_number=None
 
 def select_hotel(request,flight_number):
-    radius = 25 #km
-    flight = Flight.objects.get(pk=flight_number)
-    city = flight.origin
-    hotels = hotelsNearAirport(city, radius)
-    hotel_temp = []
-    for hotel in hotels:
-        jsn = {}
-        jsn['name']=hotel.name
-        jsn['address']=hotel.address
+    if request.method=="POST":
+        hotels = request.session["hotels"]
+
+
+    else:
+        radius = 25 #km
+        flight = Flight.objects.get(pk=flight_number)
+        city = flight.origin
+        hotels = hotelsNearAirport(city, radius)
+        hotel_temp = []
+        for hotel in hotels:
+            jsn = {}
+            jsn['name']=hotel.name
+            jsn['address']=hotel.address
+            hotel_temp.append(jsn)
+        hotels = hotel_temp
+        request.session["hotels"]= json.dumps(hotels)
+        context = {}
+        context['hotels'] = list(enumerate(hotels))
+        return render(request,'choose_your_flight.html',context)
 
