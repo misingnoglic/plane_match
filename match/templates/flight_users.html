@@ -21,15 +21,12 @@
                     </div>
                   {% endfor %}
 
-            		<div class="2u column align="center">
-					{{ passenger.person.user.username }}{%  if passenger.seat_number %}, <strong>{{ passenger.seat_number }}</strong> {% endif %}
-					    <a href="/profile/{{ passenger.pk }}"> <img src="http://placekitten.com/g/175/175"/></a>
-						<div class="interests">{% for interest in interests %}{{ interest.name }}, {% endfor %}</div>
-				    </div>
+
             </br></br></br></br>
 
      		<div class="row">
                     <div class="3u -1u">
+                        <!--
                         <form action="/flight/{{ flight.pk }}/seat" method="post">
                                 No seat? We gotcha.
                                 <div style="background-color:white;">
@@ -37,7 +34,7 @@
                                 <p><input id="id_number" maxlength="3" name="number" type="text" /></p>
                                 </div>
                                 <input type="submit" value="Submit"/>
-                        </form>
+                        </form> -->
                     </div>
                 </div>
         </div>

@@ -274,7 +274,7 @@ def send(request, friend_id):
             status, msg = sg.send(message)
 
             email
-            return HttpResponse("Yay you sent the email!")
+            return redirect('match.views.profile')
     else:
         form = EmailForm()
         context={}
