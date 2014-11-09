@@ -5,7 +5,6 @@ from django.contrib.auth.forms import UserCreationForm
 
 class UserCreateForm(UserCreationForm):
     email = forms.EmailField(required=True)
-    #email =
     class Meta:
         model = User
         fields = ("username", "email", "password1", "password2")
@@ -16,3 +15,9 @@ class UserCreateForm(UserCreationForm):
         if commit:
             user.save()
         return user
+
+class NewFlight(forms.Form):
+    class Meta:
+        fields = ("from", "to", "date")
+
+    def save(self, commit=True):
