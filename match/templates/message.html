@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}Choose Flight{% endblock %}
+{% block title2 %}Choose Flight{% endblock %}
+
+    {%  block content %}
+
+       <div align="center">
+            <div class="rectangle-box" style="width:30% !important;">
+                <form action="/sendMessage" method="post">
+
+                <input type="submit" value="Submit" onclick="spin()"/>
+                </form>
+            </div>
+       </div>
+
+{% endblock %}
