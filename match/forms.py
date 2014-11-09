@@ -51,4 +51,4 @@ class NewFlight(forms.Form):
         fields = ("from", "to", "date")
 
 class SeatNumberForm(forms.Form):
-    number = forms.CharField(max_length=3)
+    seat_number = forms.CharField(max_length=3)

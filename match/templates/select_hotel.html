@@ -1,17 +1,17 @@
 {% extends "base.html" %}
 
-{% block title %}Choose Flight{% endblock %}
-{% block title2 %}Choose Flight{% endblock %}
+{% block title %}Choose Hotel{% endblock %}
+{% block title2 %}Choose Hotel{% endblock %}
 
     {%  block content %}
 
        <div align="center">
             <div class="rectangle-box" style="width:30% !important;">
-                <form action="/addflight" method="post">
+                <form action="" method="post">
                     {% csrf_token %}
 
-                <p><label for="id_flight">Flight:</label> <select id="id_flight" name="flight">
-                    {% for i,j in flights %}
+                <p><label for="id_hotel">Hotel:</label> <select id="id_hotel" name="hotel">
+                    {% for i,j in hotels %}
                 <option value={{ i }}>{{ j }}</option>
                     {% endfor %}
                 </select></p>
