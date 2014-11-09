@@ -611,10 +611,22 @@
 			color: inherit;
 		}
 
-		.wrapper.style4 {
-			background: white;
-			color: inherit;
-			padding: 4em;
+
+		.style4 {
+
+			background: gray;
+			color: white;
+			padding: .2em;
+			margin-bottom: 0em;
+			height:2% !important;
+			max-height:10% !important;
+			
+		}
+		
+		.special-pad{
+			padding-left:4.5em;
+			padding-right:4.5em;
+			letter-spacing: 3px;
 		}
 
 		.wrapper.styleME{
@@ -1140,6 +1152,46 @@
 	width:100%;
 	height:100%;
 }
+
+
+
+.rectangle-box{
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    background: #4679BD;
+}
+.rectangle-box:before{
+    content: "";
+    display: block;
+    padding-top: 50%;
+}
+.rectangle-content{
+    position:  absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    color: white;
+}
+.rectangle-content div {
+   display: table;
+   width: 100%;
+   height: 100%;
+}
+.rectangle-content span {
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+    color: white
+}
+
+
+
+
+
+
+
 
 #user_profile{
     background: #336699;
