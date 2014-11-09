@@ -254,7 +254,7 @@ def send(request, friend_id):
     current_user = request.user
     friend = PersonOnFlight.objects.get(pk=friend_id)
     email = friend.person.user.email
-<<<<<<< HEAD
+
     if request.method=="POST":
         form = EmailForm(request.POST)
         if form.is_valid():
@@ -282,6 +282,3 @@ def send(request, friend_id):
         context['email'] = email
         context['form'] = form
         return render(request, 'send.html',context)
-=======
-
->>>>>>> origin/master
