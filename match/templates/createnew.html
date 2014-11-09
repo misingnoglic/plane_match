@@ -4,9 +4,18 @@
 	<section id="banner">
 		<div class="inner">
 		<header>
-		  <h2>WELCOME TO PLANEMATCH</h2>
+		  <h2>Create a new flight</h2>
 		</header>
-		<p><strong>THE SOCIAL FLIGHT SEAT MAPPER</strong><br>
+		<p>Let's get started!<br>
 		</br>
+        <p>
+            <form action="/your-name/" method="post">
+            <label for="your_from">Departing from: </label>
+            <input id="your_from" type="text" from="your_from" value="{{ current_from }}">
+            <input type="submit" value="OK">
+            </form>
+
+
+        </p>
 	</div>
         {% endblock %}
