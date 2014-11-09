@@ -43,3 +43,22 @@ def success(request):
         return render(request, 'success.html')
     else:
         return HttpResponse("idk")
+
+def createnew(request):
+    if request.method == 'POST':
+        form = UserCreateForm(request.POST)
+
+        if form.is_valid():
+            departFrom = form.clean_username()
+            departTo = form.clean_password2()
+            departDate = form.
+            form.save()
+            login(request,user)
+            #return render(request,'created_file.html')
+            return redirect('match.views.success')
+    else:
+        form = UserCreateForm()
+        context = {"form":form}
+        context = {}
+        context['form'] = form
+        return render(request, 'register.html',context)
