@@ -10,6 +10,10 @@ urlpatterns = patterns('',
     url(r'^$', views.index, name='index'),
     url(r'success', views.success, name='success'),
     url(r'login', views.login, name='login'),
+<<<<<<< HEAD
     url(r'logout', views.logout, name='logout')
 
+=======
+    url(r'logout', views.login, name='logout'),
+>>>>>>> origin/master
 )

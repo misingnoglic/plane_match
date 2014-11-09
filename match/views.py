@@ -34,17 +34,25 @@ def index(request):
 def login(request):
     return render(request, 'login.html')
 
+def logout(request):
+    logout(request)
+    return render(request, 'logout.html')
+
 def success(request):
     if request.user.is_authenticated():
         return render(request, 'success.html')
     else:
         return HttpResponse("idk")
 
+<<<<<<< HEAD
 def logout(request):
     return render(request, 'logout.html')
 
 '''
 def createnew(request):
+=======
+'''def createnew(request):
+>>>>>>> origin/master
     if request.method == 'POST':
         form = UserCreateForm(request.POST)
 
@@ -61,4 +69,9 @@ def createnew(request):
         context = {"form":form}
         context = {}
         context['form'] = form
+<<<<<<< HEAD
         return render(request, 'register.html',context)'''
+=======
+        return render(request, 'register.html',context)
+'''
+>>>>>>> origin/master
