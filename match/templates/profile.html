@@ -9,10 +9,21 @@
                 <header id="profiletop"><h1>your<span>interests</span></h1>
                 <div class="rectangle-box">
                 <div class='square-box'>
-                    <div class='square-content' id="user_profile"><div>
-                        <img src="http://placekitten.com/g/300/300">
-                        <span></span></div></div>
-                    {{ for field in interest_form }}
+                    <form action="/addInterest" method="POST">
+                    {% csrf_token %}
+                        {% if form.non_field_errors %}
+                            <ul>
+                              {% for error in form.non_field_errors %}
+                                <li>{{ error }}</li>
+                              {% endfor %}
+                            </ul>
+                        {% endif %}
+                    <font-size="50em">GIANT TEXT</font>
+                    {% for field in form %}
+                        <p>{{ field.label_tag }} {{ field }}</p>
+                    {% endfor %}
+                    <input type="submit" value="+ add interest" id="addToProf"/>
+                    </form>
                 </div>
                     </div>
             </div>

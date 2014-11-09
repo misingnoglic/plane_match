@@ -55,6 +55,7 @@ def success(request):
 
 def profile(request):
     context = {'interest_form':InterestForm(), 'description_form':DescriptionForm()}
+
     return render(request, 'profile.html', context)
 
 '''def createnew(request):
