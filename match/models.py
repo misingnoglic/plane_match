@@ -14,7 +14,7 @@ class Seat(models.Model):
     flight = models.ForeignKey(Flight)
 
 
-class Hobby(models.Model):
+class Interest(models.Model):
     name = models.CharField(max_length=10)
 
 class Category(models.Model):
@@ -27,7 +27,7 @@ class Hotel(models.Model):
 class AirlineUser(models.Model):
     #friends_made = 0
     user = models.ForeignKey(User)
-    hobbies = models.ManyToManyField(Category)
+    interests = models.ManyToManyField(Interest)
 
 
 class PersonOnFlight(models.Model):
