@@ -141,17 +141,19 @@ def addFlight(request):
         print flight_json
         index = int(request.POST['flight'])
         flight = flight_json[index]
-        flights = Flight.objects.get(number=flight['number'])
-        if len(flights)==0:
+        try:
+            flights = Flight.objects.get(number=flight['number'])
+            flight_model= flights[0]
+        except Flight.DoesNotExist:
             flight_model = Flight(number = flight['number'], destination=flight['destination'],origin = flight['origin'])
             flight_model.save()
-        else:
-            flight_model= flights[0]
-
-        passengers = PersonOnFlight.objects.get(flight=flight_model,person=user)
-        if len(passengers)<0:
-            passenger = PersonOnFlight(person = user, flight=flight_model)
-            passenger.save()
+        finally:
+            try:
+                passengers = PersonOnFlight.objects.get(flight=flight_model,person=user)
+                passenger=passengers[0]
+            except PersonOnFlight.DoesNotExist:
+                passenger = PersonOnFlight(person = user, flight=flight_model)
+                passenger.save()
 
         return redirect('match.views.flight_page',flight_number=flight_model.pk)
         #return HttpResponse("Yay")
