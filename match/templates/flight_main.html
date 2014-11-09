@@ -1,13 +1,14 @@
-<!DOCTYPE html>
-<html>
-<head lang="en">
-    <meta charset="UTF-8">
-    <title>Main Page!</title>
-</head>
-<body>
+{% extends "base.html" %}
 
-<a href="profiles">View Passenger Profiles</a>
+{% block title %}Choose Flight{% endblock %}
+{% block title2 %}Choose Flight{% endblock %}
+
+    {%  block content %}
+
+
+       <br>
 <a href="hotel">Manage Hotel Info</a>
 
-</body>
-</html>
+<a href="profiles">View Passenger Profiles</a>
+
+{% endblock %}
