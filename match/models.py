@@ -7,6 +7,10 @@ from django.contrib.auth.models import User
 
 class Flight(models.Model):
     number = models.CharField(max_length=10)
+    destination = models.CharField(max_length=10)
+    origin = models.CharField(max_length=10)
+    #departure = models.DateTimeField()
+
     def __str__(self):
         return str(self.number)
     #participants = models.ManyToManyField(AirlineUser)

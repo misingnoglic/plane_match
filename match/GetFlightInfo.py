@@ -3,13 +3,14 @@ import requests
 from secrets import amadeus_key
 
 class FlightObject():
-	def __init__(self,departureTime,arrivalTime,flightNumber,aircraft):
-		self.departureTime = departureTime
-		self.arrivalTime = arrivalTime
-		self.flightNumber = flightNumber
-		self.aircraft = aircraft
-	def __str__(self):
-		return str(self.departureTime)+" "+str(self.arrivalTime)+" "+str(self.flightNumber)+" "+str(self.aircraft)
+    def __init__(self,departureTime,arrivalTime,flightNumber,aircraft):
+        self.departureTime = departureTime
+        self.arrivalTime = arrivalTime
+        self.flightNumber = flightNumber
+        self.aircraft = aircraft
+    def __str__(self):
+        short_time = self.departureTime.split("T")[1]
+        return str("Flight number "+str(self.flightNumber)+" departing at "+str(short_time))
 
 #date should be formatted yyyy-MM-dd,
 #origin and destination should be 3 digit airport codes 
@@ -26,9 +27,8 @@ def getFlights(date,origin,destination,airline):
 		for results in planelist['results']:
 			for itineraries in results[u'itineraries']:
 				d = itineraries
-				#print d['outbound']
 
-				firstFlight = d['outbound'][u'flights'][1]
+				firstFlight = d['outbound'][u'flights'][0]
 				lastFlight = d['outbound'][u'flights'][-1]
 				depart = firstFlight['departs_at']
 				arrival = lastFlight['arrives_at']
@@ -38,6 +38,7 @@ def getFlights(date,origin,destination,airline):
 				a = FlightObject(depart,arrival,number,aircraft)
 				list_of_departures.append(a)
 	return list_of_departures
+
 
 
 #for flight in getFlights(testDate,testOrigin,testDestination,testAirline):

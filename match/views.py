@@ -105,10 +105,18 @@ def find_flight(request):
             date = form.cleaned_data['depart_date']
             date = date.strftime("%Y-%m-%d")
             list_of_flights = getFlights(date,origin,destination,airline)
-            return HttpResponse("hi")
+            request.list_of_flights= list_of_flights
+            context = {}
+            context['flights'] = list(enumerate(list_of_flights))
+            return render(request,'choose_your_flight.html',context)
     else:
         form = FindFlightForm()
         context = {}
         context['form']=form
         return render(request, 'find_flight.html',context)
 
+def addFlight(request):
+    if request.method == "POST":
+        list_of_flights= request.list_of_flights
+        index = request.airline
+        flight = list_of_flights[index]
