@@ -26,28 +26,19 @@
 	 					&nbsp;
 					</div>
 				</div>
+            </br></br></br></br>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                    </br></br></br></br></br></br>
-                    <form action="/flight/{{ flight.pk }}/seat" method="post">
-                        {% csrf_token %}
-                        Choose a seat{{ form.as_p }}
-                        <input type="submit" value="Submit"/>
-                    </form>
+				<div class="row">
+                    <div class="3u -1u">
+                        <form action="/flight/{{ flight.pk }}/seat" method="post">
+                                No seat? We gotcha.
+                                <div style="background-color:white;">
+                                {% csrf_token %}
+                                {{ form.as_p }}
+                                </div>
+                                <input type="submit" value="Submit"/>
+                        </form>
+                    </div>
                 </div>
 
 
