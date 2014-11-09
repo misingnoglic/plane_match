@@ -1216,11 +1216,24 @@
 }
 
 #profiletop h1 {
-			font-weight: 900;
-			margin: 0;
-            font-size:1.5em;
-		}
+    font-weight: 900;
+    margin: 0;
+    font-size:1.5em;
+    }
 
-			#profiletop h1 span {
-				font-weight: 300;
-			}
+    #profiletop h1 span {
+        font-weight: 300;
+    }
+
+#addToProf {
+ color: none;
+ font-size: 12px;
+    text-align:left;
+ width: 30px;
+ height: 50px;
+ border: none;
+ margin: 0;
+ padding: 0;
+ background: none;
+ text-color:blue;
+}
