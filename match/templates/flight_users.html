@@ -12,26 +12,19 @@
 					</div>
                     {% for passenger,interests in people_interests %}
 
-					<div class="2u column" align="center">
-						<div>{{ passenger.person.user.username }}</div>
-                        {%  if passenger.seat_number %}, <strong>{{ passenger.seat_number }}</strong> {% endif %}
-						<img src="http://placekitten.com/g/175/175"/>
-
-					<div class="2u column">
-						{{ passenger.person.user.username }}{%  if passenger.seat_number %}, <strong>{{ passenger.seat_number }}</strong> {% endif %}
-						<a href="\profile\{{ passenger.pk }}"> <img src="http://placekitten.com/g/175/175"/></a>
-
-						<div class="interests">{% for interest in interests %}{{ interest.name }} - {% endfor %}</div>
+            		<div class="2u column align="center">
+					{{ passenger.person.user.username }}{%  if passenger.seat_number %}, <strong>{{ passenger.seat_number }}</strong> {% endif %}
+					    <a href="\profile\{{ passenger.pk }}"> <img src="http://placekitten.com/g/175/175"/></a>
+						<div class="interests">{% for interest in interests %}{{ interest.name }}, {% endfor %}</div>
 					</div>
                     {% endfor %}
-
-				</div>
-
+                    </br></br></br></br></br></br>
                     <form action="/flight/{{ flight.pk }}/seat" method="post">
                         {% csrf_token %}
                         Choose a seat{{ form.as_p }}
                         <input type="submit" value="Submit"/>
                     </form>
                 </div>
+
 
 {% endblock %}
