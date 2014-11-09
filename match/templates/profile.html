@@ -42,56 +42,16 @@
 
                     <div class='rectangle-content' id="current_flights">
                      <table class="alt-table">
+                         {% for flight in flights %}
                             <tr>
-                                <td>Hamlet</td>
-                                <td>Tragedy</td>
-                                <td>1604</td>
+                                <td>{{ flight.number }}</td>
+                                <td>{{ flight.destination }}</td>
+                                <td>{{ flight.origin }}</td>
                                 <td>1604</td>
                             </tr>
-                            <tr>
-                                <td>Hamlet</td>
-                                <td>Tragedy</td>
-                                <td>1604</td>
-                                <td>1604</td>
-                            </tr>
-                            <tr>
-                                <td>Hamlet</td>
-                                <td>Tragedy</td>
-                                <td>1604</td>
-                                <td>1604</td>
-                            </tr>
-                            <tr>
-                                <td>Hamlet</td>
-                                <td>Tragedy</td>
-                                <td>1604</td>
-                                <td>1604</td>
-                            </tr>
-                            <tr>
-                                <td>Hamlet</td>
-                                <td>Tragedy</td>
-                                <td>1604</td>
-                                <td>1604</td>
-                            </tr>
-                            <tr>
-                                <td>Hamlet</td>
-                                <td>Tragedy</td>
-                                <td>1604</td>
-                                <td>1604</td>
-                            </tr>
-                            <tr>
-                                <td>Hamlet</td>
-                                <td>Tragedy</td>
-                                <td>1604</td>
-                                <td>1604</td>
-                            </tr>
-                            <tr>
-                                <td>Hamlet</td>
-                                <td>Tragedy</td>
-                                <td>1604</td>
-                                <td>1604</td>
-                           </tr>
+                         {% endfor %}
                     </table>
-                    <a href="new_flight.html"><button class="add-btn">+</button></a>
+                    <a href="find"><button class="add-btn">+</button></a>
 
                     </div>
                 </div>

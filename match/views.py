@@ -84,8 +84,16 @@ def profile(request):
     current_user = request.user
     user = AirlineUser.objects.get(user__pk__exact=current_user.pk)
     list_of_interests = user.interests.all()
-    context = {'interest_form':InterestForm(), 'description_form':DescriptionForm(),
-               'interests':list_of_interests}
+    travels = PersonOnFlight.objects.filter(person=user)
+    flights = []
+    for instance in travels:
+        flights.append(instance.flight)
+    print flights
+    context={}
+    context['interest_form']=InterestForm()
+    context['description_form']=DescriptionForm()
+    context['interests']=list_of_interests
+    context['flights']=flights
 
     return render(request, 'profile.html', context)
 
@@ -109,7 +117,6 @@ def find_flight(request):
                 d['departure'] = date
                 flight_json.append(d)
             request.session["flight"]= json.dumps(flight_json)
-            request.session[1] = "foo"
             print request.session['flight']
             context = {}
             context['flights'] = list(enumerate(list_of_flights))
@@ -120,17 +127,43 @@ def find_flight(request):
         context['form']=form
         return render(request, 'find_flight.html',context)
 
+def flight_page(request,flight_number):
+    flight = Flight.objects.get(pk=flight_number)
+    context = {}
+    context['id']=flight_number
+    return render(request,'flight_main.html',context)
+
 def addFlight(request):
     if request.method == "POST":
         current_user = request.user
         user = AirlineUser.objects.get(user__pk__exact=current_user.pk)
         flight_json= json.loads(request.session['flight'])
-        print request.session['1']
         print flight_json
         index = int(request.POST['flight'])
         flight = flight_json[index]
-        flight_model = Flight(number = flight['number'], destination=flight['destination'],origin = flight['origin'])
-        flight_model.save()
-        passenger = PersonOnFlight(person = user, flight=flight_model)
-        passenger.save()
-        return HttpResponse("Yay")
+        flights = Flight.objects.get(number=flight['number'])
+        if len(flights)==0:
+            flight_model = Flight(number = flight['number'], destination=flight['destination'],origin = flight['origin'])
+            flight_model.save()
+        else:
+            flight_model= flights[0]
+
+        passengers = PersonOnFlight.objects.get(flight=flight_model,person=user)
+        if len(passengers)<0:
+            passenger = PersonOnFlight(person = user, flight=flight_model)
+            passenger.save()
+
+        return redirect('match.views.flight_page',flight_number=flight_model.pk)
+        #return HttpResponse("Yay")
+
+
+def flight_profiles(request,flight_number):
+    flight = Flight.objects.get(pk=flight_number)
+    people = PersonOnFlight.object.filter(flight=flight)
+    context = {}
+    context['people']=people
+    return render(request,'flight_profiles.html',context)
+
+def choose_seat(request,flight_number):
+    pass
+
