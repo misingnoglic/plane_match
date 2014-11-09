@@ -5,6 +5,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 from models import AirlineUser, Interest, Flight, PersonOnFlight
 from GetFlightInfo import *
+from GetHotelData import *
 import json
 
 
@@ -194,4 +195,15 @@ def choose_seat(request,flight_number):
         seat = SeatNumberForm(request.POST)
         if seat.is_valid():
             person.seat_number=None
+
+def select_hotel(request,flight_number):
+    radius = 25 #km
+    flight = Flight.objects.get(pk=flight_number)
+    city = flight.origin
+    hotels = hotelsNearAirport(city, radius)
+    hotel_temp = []
+    for hotel in hotels:
+        jsn = {}
+        jsn['name']=hotel.name
+        jsn['address']=hotel.address
 
