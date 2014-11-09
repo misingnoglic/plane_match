@@ -1187,15 +1187,17 @@
 }
 
 
-
-
-
-
-
-
 #user_profile{
     background: #336699;
 }
 #current_flights{
     background: #83d3c9;
+}
+
+
+table tr .rectangle-content:nth-child(odd) td{
+	background:#336699;
+}
+table tr .rectangle-content:nth-child(even) td{
+	background:#83d3c9;
 }
