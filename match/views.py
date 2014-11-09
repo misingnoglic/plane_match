@@ -99,7 +99,7 @@ def find_flight(request):
             date = form.cleaned_data['depart_date']
             date = date.strftime("%Y-%m-%d")
             list_of_flights = getFlights(date,origin,destination,airline)
-            request.list_of_flights= list_of_flights
+            request.session[0]= list_of_flights
             context = {}
             context['flights'] = list(enumerate(list_of_flights))
             return render(request,'choose_your_flight.html',context)
@@ -113,8 +113,9 @@ def addFlight(request):
     if request.method == "POST":
         current_user = request.user
         user = AirlineUser.objects.get(user__pk__exact=current_user.pk)
-        list_of_flights= request.list_of_flights
-        index = request.airline
+        list_of_flights= request.session['0']
+        print list_of_flights
+        index = int(request.airline)
         flight = list_of_flights[index]
         flight_model = Flight(number = flight.number, destination=flight.destination,origin=flight.origin)
         flight_model.save()
