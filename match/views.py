@@ -41,6 +41,7 @@ def add_interests(request):
             else:
                 interest_object = L[0]
             user.interests.add(interest_object)
+            return redirect('match.views.profile')
 
     else:
         pass
