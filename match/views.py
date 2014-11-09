@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, HttpResponse
 #from django.contrib.auth.forms import UserCreateForm
-from forms import UserCreateForm
+from forms import UserCreateForm, InterestForm, DescriptionForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 
@@ -54,7 +54,8 @@ def success(request):
         return HttpResponse("idk")
 
 def profile(request):
-    return render(request, 'profile.html')
+    context = {'interest_form':InterestForm(), 'description_form':DescriptionForm()}
+    return render(request, 'profile.html', context)
 
 '''def createnew(request):
     if request.method == 'POST':
