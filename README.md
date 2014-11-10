@@ -14,4 +14,15 @@ A feature that was half-baked was the idea of saying what hotel you're going to 
 share a taxi with, possibly saving 2/3rds of your expenses there. Currently all we can do is query all the hotels
 near a certain airport.
 
-Screenshots to be posted soon
+This was a fairly ambitious project for all of us, since it was my first time making user registration and profiles for
+people, and the first time anyone else on my team even used Python. In general the roles worked out like this.
+
+Arya: Django backend, database stuff, answering any questions about django/python, getting page running
+Sofiya: Translated pages to templates, CSS, and forms
+Ari: HTML/CSS formatting on pages
+Jacob: Worked on APIs to get the correct input/output
+
+We don't have this hosted anywhere (yet), but here are some screenshots (all production working):
+
+![Home Page](http://i.imgur.com/W98ZSqY.png "Home Page")
+
