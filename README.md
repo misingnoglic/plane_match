@@ -65,5 +65,9 @@ This is largely useless now but eventually people will be able to add more to th
 Messaging system (sends an email via sendgrid)
 ![message](http://i.imgur.com/S7SFBru.png)
 
+We can also use the Amadeus API to get a list of hotels near the area. In the future we would like to implement a system
+that allows people to find others going to the same hotel from their flight, so that they can save on taxi fees.
+![hotels](http://i.imgur.com/z9dbKkY.png)
+
 Thank you for looking at our website!
 ![logout](http://i.imgur.com/4vQ0gds.png)
