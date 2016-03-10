@@ -9,3 +9,4 @@ smtpapi==0.1.2
 unittest2==0.8.0
 whitenoise==2.0.6
 wsgiref==0.1.2
+psycopg2
