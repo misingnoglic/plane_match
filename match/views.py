@@ -13,18 +13,23 @@ from secrets import *
 
 def register(request):
     if request.method == 'POST':
+        
         form = UserCreateForm(request.POST)
         if form.is_valid():
-            username = form.clean_username()
-            password = form.clean_password2()
             u = form.save()
+            username = form.cleaned_data['username']
+            password = form.cleaned_data['password1']
             p = AirlineUser(user=u)
             p.save()
             user = authenticate(username=username, password=password)
             login(request,user)
             #return render(request,'created_file.html')
             return redirect('match.views.success')
+        else:
+            pass
+            
     else:
+        import pdb;pdb.set_trace()
         form = UserCreateForm()
         #context = {"form":form}
         context = {}
