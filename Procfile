@@ -1,2 +1,1 @@
-web: gunicorn gettingstarted.wsgi --log-file -
-
+web: gunicorn plane_match.wsgi --log-file -
