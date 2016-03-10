@@ -29,7 +29,6 @@ def register(request):
             pass
             
     else:
-        import pdb;pdb.set_trace()
         form = UserCreateForm()
         #context = {"form":form}
         context = {}
